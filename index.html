@@ -1,145 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aranovaa | Connecting Ideas to the Future</title>
-  <meta name="description" content="Aranovaaは、中日文化背景を基盤に、ITとビジネスの知見を融合して価値創造を支援するコンサルティングカンパニーです。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ara nova</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#home">Aranovaa</a>
-      <nav id="nav" class="nav">
-        <a href="#home">ホーム</a>
-        <a href="#about">会社情報</a>
-        <a href="#services">事業内容</a>
-        <a href="#contact">お問い合わせ</a>
-      </nav>
-      <button id="menuBtn" aria-label="メニュー" class="menu-btn">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+    <header>
+        <div class="logo">ara nova</div>
+        <nav id="nav-menu">
+            <a href="index.html">ホーム</a>
+            <a href="#about">会社情報</a>
+            <a href="#services">事業内容</a>
+            <a href="#contact">お問い合わせ</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+    </header>
 
-  <main id="home">
-    <section class="hero" role="banner" aria-label="Hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
+    <section class="hero">
         <h1>Connecting Ideas to the Future</h1>
-        <p>Aranovaaは、中日両文化の橋渡しとして、ITとビジネスの知見を結び、現場に寄り添う実装力で未来をカタチにします。</p>
-        <a href="#contact" class="cta">お問い合わせ</a>
-      </div>
+        <p>ara nova は、技術とビジネスを融合し、お客様と未来をつなぐ架け橋です。</p>
     </section>
 
-    <section id="intro" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">Aranovaaについて</h2>
-          <p>Aranovaa（アラノヴァ）は、技術的な専門性と経営の知見を兼ね備えた少数精鋭のコンサルティングカンパニーです。中国と日本で培った経験を背景に、システム構想、開発支援、業務改善、海外連携など、スモールスタートから伴走します。</p>
-          <ul class="bullets">
-            <li>中日 × テクノロジー × ビジネスの<span class="em">クロスオーバー</span></li>
-            <li><span class="em">一貫伴走</span>：要件整理から実装・運用まで</li>
-            <li>初期費用を抑えた<span class="em">スモールスタート</span>に対応</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>基本情報</h3>
-          <dl class="defs">
-            <dt>名称</dt><dd>Aranovaa（アラノヴァ）</dd>
-            <dt>所在地</dt><dd>東京都（詳細はお問い合わせ時にご案内します）</dd>
-            <dt>対応エリア</dt><dd>全国・オンライン</dd>
-            <dt>連絡先</dt><dd><a href="mailto:info@aranovaa.com">info@aranovaa.com</a></dd>
-          </dl>
-        </div>
-      </div>
+    <section id="about">
+        <h2>会社情報</h2>
+        <p>ara novaは、中日両国の文化的背景と技術的知見を融合し、IT・ビジネスコンサルティングを中心に多分野で活動する企業です。</p>
+        <ul>
+            <li>会社名: ARA NOVR株式会社</li>
+            <li>所在地: 東京都稲城市</li>
+            <li>設立: 2025年</li>
+            <li>代表者: Andy</li>
+        </ul>
     </section>
 
-    <section id="services" class="section alt">
-      <div class="container">
-        <h2 class="section-title">事業内容</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>ITコンサルティング</h3>
-            <p>要件整理、アーキテクチャ設計、クラウド活用、ベンダー選定など、現場に根ざした実務支援を提供します。</p>
-            <ul class="mini-list">
-              <li>要件定義／RFP作成支援</li>
-              <li>クラウド・インフラ設計（AWS等）</li>
-              <li>内製化・DX推進アドバイザリー</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>システム開発支援（SES/準委託）</h3>
-            <p>アーキテクト／PL／SE としての参画、開発体制の立ち上げ、品質・スケジュール管理まで伴走します。</p>
-            <ul class="mini-list">
-              <li>アーキテクト／PL／PM支援</li>
-              <li>アジャイル導入・コーチング</li>
-              <li>既存システムの改善・移行</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>ビジネス・経営支援</h3>
-            <p>スモールビジネスの戦略策定、業務改善、海外連携、教育・研究領域との橋渡しを行います。</p>
-            <ul class="mini-list">
-              <li>事業戦略／市場リサーチ</li>
-              <li>業務プロセス改善・可視化</li>
-              <li>中日連携プロジェクト推進</li>
-            </ul>
-          </article>
+    <section id="services">
+        <h2>事業内容</h2>
+        <div class="service-item">
+            <h3>システム開発</h3>
+            <p>業務システム・Webアプリケーション・基盤構築など、お客様のニーズに合わせたシステムを提供します。</p>
         </div>
-      </div>
+        <div class="service-item">
+            <h3>SES事業</h3>
+            <p>経験豊富なエンジニアを派遣し、システム設計から運用保守まで幅広くサポートします。</p>
+        </div>
+        <div class="service-item">
+            <h3>ビジネスコンサルティング</h3>
+            <p>経営戦略、IT活用、業務改善など、企業成長を支えるコンサルティングサービスを提供します。</p>
+        </div>
+        <div class="service-item">
+            <h3>未来事業</h3>
+            <p>AI、IoT、福祉・教育分野など、新しい価値を創造する事業を模索しています。</p>
+        </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">理念</h2>
-          <p>「文化の橋を、実装で。」―― 私たちは、多様な文化と知の背景を尊重し、対話に基づく設計と、持続可能な実装で価値を創出します。小さく始めて、大きく育てる。お客様の現実的な制約を理解しながら、未来につながる意思決定を支援します。</p>
-          <p class="quote">Connecting Ideas to the Future</p>
-        </div>
-        <div class="card">
-          <h3>プロファイル（サマリー）</h3>
-          <p>中日両国でのエンジニアリング・研究・教育の経験を持つチームが、技術と経営を横断した支援を行います。プロジェクト単位・時間単位など柔軟な契約に対応します。</p>
-          <ul class="mini-list">
-            <li>言語：日本語／中国語／英語</li>
-            <li>契約形態：業務委託・SES・顧問</li>
-            <li>開始規模：スポット相談〜長期伴走</li>
-          </ul>
-        </div>
-      </div>
+    <section id="contact">
+        <h2>お問い合わせ</h2>
+        <form action="https://formspree.io/f/{your_form_id}" method="POST">
+            <label>お名前:</label>
+            <input type="text" name="name" required>
+            <label>メールアドレス:</label>
+            <input type="email" name="email" required>
+            <label>メッセージ:</label>
+            <textarea name="message" rows="5" required></textarea>
+            <button type="submit">送信</button>
+        </form>
     </section>
 
-    <section id="contact" class="section alt">
-      <div class="container">
-        <h2 class="section-title">お問い合わせ</h2>
-        <p>ご相談・お見積もり・連携のご希望は、以下のメールアドレスまでご連絡ください。オンラインでの打ち合わせに対応します。</p>
-        <p class="contact-mail"><a href="mailto:info@aranovaa.com">info@aranovaa.com</a></p>
-      </div>
-    </section>
-  </main>
+    <footer>
+        <p>&copy; 2025 ara nova</p>
+        <a href="privacy.html">プライバシーポリシー</a> | 
+        <a href="law.html">特定商取引法に基づく表記</a>
+    </footer>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© <span id="year"></span> Aranovaa. All rights reserved.</small>
-      <a class="toplink" href="#home" aria-label="ページ上部へ">▲</a>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('nav');
-    btn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      btn.classList.toggle('open');
-    });
-
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
