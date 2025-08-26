@@ -1,145 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>aranova | Connecting Ideas to the Future</title>
-  <meta name="description" content="aranovaは、中日文化背景を基盤に、ITとビジネスの知見を融合して価値創造を支援するコンサルティングカンパニーです。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ara nova</title>
+  <meta name="description" content="ara nova - Connecting Ideas to the Future">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#home">ara nova</a>
-      <nav id="nav" class="nav">
-        <a href="#home">ホーム</a>
-        <a href="#about">会社情報</a>
-        <a href="#services">事業内容</a>
-        <a href="#contact">お問い合わせ</a>
-      </nav>
-      <button id="menuBtn" aria-label="メニュー" class="menu-btn">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova logo">
+      
 
-  <main id="home">
-    <section class="hero" role="banner" aria-label="Hero">
-      <div class="hero-overlay"></div>
-      <div class="container hero-content">
+  <title>ara nova</title>
+  <!-- mark -->
+  <g transform="translate(0,4)">
+    <path d="M18 30 C8 30, 8 10, 18 6 C28 2, 48 2, 58 6 C68 10, 68 30, 58 30" fill="none" stroke="#0066cc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="40" cy="6" r="2.6" fill="#ff7a18" />
+    <path d="M28 18 L36 8" stroke="#0066cc" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- text -->
+  <g transform="translate(72,26)" fill="#0b1a2b" font-family="Noto Sans JP, Arial, sans-serif" font-size="16" font-weight="700">
+    <text x="0" y="0">ara</text>
+    <text x="48" y="0" fill="#0066cc"> nova</text>
+  </g>
+</svg>
+
+    </a>
+    <nav class="nav" id="nav">
+      <a href="index.html">ホーム</a>
+      <a href="#about">会社情報</a>
+      <a href="#services">事業内容</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
         <h1>Connecting Ideas to the Future</h1>
-        <p>aranovaは、中日両文化の橋渡しとして、ITとビジネスの知見を結び、現場に寄り添う実装力で未来をカタチにします。</p>
-        <a href="#contact" class="cta">お問い合わせ</a>
+        <p>ara novaは、中日背景を基盤に、技術と経営の知見を結び、顧客と未来をつなぐパートナーです。</p>
+        <a class="btn" href="#contact">お問い合わせ</a>
       </div>
-    </section>
-
-    <section id="intro" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">ara novaについて</h2>
-          <p>aranova（アラノヴァ）は、技術的な専門性と経営の知見を兼ね備えた少数精鋭のコンサルティングカンパニーです。中国と日本で培った経験を背景に、システム構想、開発支援、業務改善、海外連携など、スモールスタートから伴走します。</p>
-          <ul class="bullets">
-            <li>中日 × テクノロジー × ビジネスの<span class="em">クロスオーバー</span></li>
-            <li><span class="em">一貫伴走</span>：要件整理から実装・運用まで</li>
-            <li>初期費用を抑えた<span class="em">スモールスタート</span>に対応</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>基本情報</h3>
-          <dl class="defs">
-            <dt>名称</dt><dd>ARA NOVA（アラノヴァ）</dd>
-            <dt>所在地</dt><dd>東京都（詳細はお問い合わせ時にご案内します）</dd>
-            <dt>対応エリア</dt><dd>全国・オンライン</dd>
-            <dt>連絡先</dt><dd><a href="mailto:info@aranova.jp">info@aranova.jp</a></dd>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section alt">
-      <div class="container">
-        <h2 class="section-title">事業内容</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>ITコンサルティング</h3>
-            <p>要件整理、アーキテクチャ設計、クラウド活用、ベンダー選定など、現場に根ざした実務支援を提供します。</p>
-            <ul class="mini-list">
-              <li>要件定義／RFP作成支援</li>
-              <li>クラウド・インフラ設計（AWS等）</li>
-              <li>内製化・DX推進アドバイザリー</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>システム開発支援（SES/準委託）</h3>
-            <p>アーキテクト／PL／SE としての参画、開発体制の立ち上げ、品質・スケジュール管理まで伴走します。</p>
-            <ul class="mini-list">
-              <li>アーキテクト／PL／PM支援</li>
-              <li>アジャイル導入・コーチング</li>
-              <li>既存システムの改善・移行</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>ビジネス・経営支援</h3>
-            <p>スモールビジネスの戦略策定、業務改善、海外連携、教育・研究領域との橋渡しを行います。</p>
-            <ul class="mini-list">
-              <li>事業戦略／市場リサーチ</li>
-              <li>業務プロセス改善・可視化</li>
-              <li>中日連携プロジェクト推進</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">理念</h2>
-          <p>「文化の橋を、実装で。」―― 私たちは、多様な文化と知の背景を尊重し、対話に基づく設計と、持続可能な実装で価値を創出します。小さく始めて、大きく育てる。お客様の現実的な制約を理解しながら、未来につながる意思決定を支援します。</p>
-          <p class="quote">Connecting Ideas to the Future</p>
-        </div>
-        <div class="card">
-          <h3>プロファイル（サマリー）</h3>
-          <p>中日両国でのエンジニアリング・研究・教育の経験を持つチームが、技術と経営を横断した支援を行います。プロジェクト単位・時間単位など柔軟な契約に対応します。</p>
-          <ul class="mini-list">
-            <li>言語：日本語／中国語／英語</li>
-            <li>契約形態：業務委託・SES・顧問</li>
-            <li>開始規模：スポット相談〜長期伴走</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section alt">
-      <div class="container">
-        <h2 class="section-title">お問い合わせ</h2>
-        <p>ご相談・お見積もり・連携のご希望は、以下のメールアドレスまでご連絡ください。オンラインでの打ち合わせに対応します。</p>
-        <p class="contact-mail"><a href="mailto:info@aranova.jp">info@aranova.jp</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© <span id="year"></span> aranova. All rights reserved.</small>
-      <a class="toplink" href="#home" aria-label="ページ上部へ">▲</a>
+      <div class="hero-image" aria-hidden="true"></div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('nav');
-    btn.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      btn.classList.toggle('open');
-    });
+  <section id="about" class="section container">
+    <h2>会社情報</h2>
+    <div class="two-col">
+      <div>
+        <p>ara nova（アラ ノヴァ）は、技術とビジネスのクロスオーバーを通じて、実装力のあるソリューションを提供します。スモールスタートで伴走し、持続可能な価値を創出します。</p>
+        <ul class="info-list">
+          <li><strong>会社名：</strong>ara nova 株式会社</li>
+          <li><strong>設立：</strong>2025年</li>
+          <li><strong>所在地：</strong>東京都（詳細はお問い合わせ時にご案内します）</li>
+          <li><strong>対応言語：</strong>日本語・中国語・英語</li>
+        </ul>
+  </section>
 
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <section id="services" class="section alt">
+    <div class="container">
+      <h2>事業内容</h2>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>ITコンサルティング</h3>
+          <p>要件定義、アーキテクチャ設計、クラウド導入支援など、実務に即した提案と設計を行います。</p>
+          <ul>
+            <li>要件定義 / RFP作成</li>
+            <li>クラウド設計（AWS等）</li>
+            <li>運用設計・SRE支援</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>システム開発支援（SES/業務委託）</h3>
+          <p>アーキテクト、PL、SEとしてプロジェクトに参画し、品質と納期を担保します。</p>
+          <ul>
+            <li>常駐SE派遣</li>
+            <li>開発体制構築</li>
+            <li>アジャイル導入支援</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>ビジネスコンサルティング</h3>
+          <p>中小企業向けの事業戦略、業務改善、海外連携プロジェクトを支援します。</p>
+          <ul>
+            <li>事業戦略・市場調査</li>
+            <li>業務改善・効率化</li>
+            <li>学術連携・人材育成</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section container">
+    <h2>お問い合わせ</h2>
+    <p>ご相談・見積もり依頼は下のフォームからお送りください。</p>
+
+ <form action="https://formspree.io/f/mjkevwpl" method="POST" class="contact-form">
+      <label>お名前（必須）<input type="text" name="name" required></label>
+      <label>メール（必須）<input type="email" name="email" required></label>
+      <label>会社名<input type="text" name="company"></label>
+      <label>メッセージ（必須）<textarea name="message" rows="5" required></textarea></label>
+      <button type="submit" class="btn">送信する</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav">
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const btn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+if(btn) btn.addEventListener('click', ()=>{
+  nav.classList.toggle('open');
+});
+
+// set year
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
