@@ -76,3 +76,9 @@ body{font-family:var(--brand-font);color:var(--ink);background:var(--bg);line-he
   .services-grid{grid-template-columns:1fr}
   .hero{padding:36px 0}
 }
+.brand text:first-of-type {
+  fill: #0b1a2b !important;
+}
+.brand text:last-of-type {
+  fill: #0066cc !important;
+}
