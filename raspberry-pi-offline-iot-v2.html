@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Raspberry Pi × Offline IoT | ara nova</title>
+  <meta name="description" content="Raspberry Pi ZeroとTWELITEを活用した、インターネット接続に依存しないOffline IoTの技術検証。">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova">
+      ara <span style="color:#0066cc;">nova</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#about">会社情報</a>
+      <a href="index.html#projects">技術検証</a>
+      <a href="index.html#contact">お問い合わせ</a>
+    </nav>
+
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <h1>Raspberry Pi × Offline IoT</h1>
+        <p>
+          インターネット接続を前提としないIoTの技術検証。
+          センサーからエッジ、スマートフォン、クラウドまで、
+          現場で使いやすい小規模・低コストなIoT構成を検証しています。
+        </p>
+        <a class="btn" href="#architecture">システム構成を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 課題 -->
+  <section class="section">
+    <div class="container">
+      <h2>01｜現場の課題</h2>
+      <div class="services-grid">
+
+        <article class="service-card">
+          <h3>低い利益率</h3>
+          <p>高価で複雑なIoTではなく、現場が導入しやすい低コストな仕組みが求められます。</p>
+        </article>
+
+        <article class="service-card">
+          <h3>人手不足</h3>
+          <p>温度確認や記録など、継続的に発生する現場作業の負担を減らす必要があります。</p>
+        </article>
+
+        <article class="service-card">
+          <h3>設備・インフラの老朽化</h3>
+          <p>既存設備を大きく改造せず、後付けで導入できる構成を目指します。</p>
+        </article>
+
+        <article class="service-card">
+          <h3>ITスキルの不足</h3>
+          <p>複雑なネットワーク構築を前提とせず、現場で扱いやすい仕組みを検証します。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 解決策 -->
+  <section class="section alt">
+    <div class="container">
+      <h2>02｜解決アプローチ</h2>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <h3>インターネット接続に依存しない</h3>
+          <p>
+            Raspberry Pi ZeroとTWELITEセンサーで自動データ収集。
+            データをエッジ側に保存し、必要なときだけスマートフォン経由でクラウドへ同期します。
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>「サイレント昇温」を察知</h3>
+          <p>
+            TWELITEによる継続的な温度モニタリングで、
+            設備劣化などによる緩やかな温度上昇を把握し、異常検知につなげます。
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>記録作業を削減</h3>
+          <p>
+            蓄積したデータを活用し、衛生管理に必要な記録・帳票作成の自動化を検証します。
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3>既存設備への後付け</h3>
+          <p>
+            冷蔵庫・冷凍庫などの既存設備を大きく改造せず、
+            センサーを設置して利用できる構成を目指します。
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- システム構成 -->
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2>03｜システム構成</h2>
+
+      <p>
+        センサーからRaspberry Pi Zeroへデータを集約し、エッジ側で保存。
+        Raspberry Pi ZeroとスマートフォンはWi-Fi AP / BLEで接続し、
+        必要な場合のみスマートフォンから4G/LTE経由でクラウドへ同期します。
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <img
+          src="images/raspberry-pi-offline-iot-architecture.png"
+          alt="Raspberry Pi Zeroを中心としたOffline IoTシステム構成図"
+          width="100%"
+          style="display:block;height:auto;"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- 実装 -->
+  <section class="section alt">
+    <div class="container">
+      <h2>04｜実装デモ</h2>
+
+      <p>
+        Raspberry Pi Zeroをエッジデバイスとして使用し、
+        TWELITEセンサーから温度データを収集・保存します。
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <img
+          src="images/raspberry-pi-offline-iot-demo.png"
+          alt="冷凍庫内のTWELITEセンサーとRaspberry Pi Zero"
+          width="100%"
+          style="display:block;height:auto;"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- 可視化 -->
+  <section class="section">
+    <div class="container">
+      <h2>05｜可視化</h2>
+
+      <p>
+        収集したデータをWeb画面で可視化し、
+        センサー数、正常・異常・オフライン状態、現在温度、
+        設定範囲、温度推移、最終受信時刻などを確認できます。
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <img
+          src="images/raspberry-pi-offline-iot-dashboard.png"
+          alt="温湿度監視システムのダッシュボード画面"
+          width="100%"
+          style="display:block;height:auto;"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- 開発手法 -->
+  <section class="section alt">
+    <div class="container">
+      <h2>06｜開発手法・Technology Stack</h2>
+
+      <div class="services-grid">
+
+        <article class="service-card">
+          <h3>開発手法</h3>
+          <p>AI-Driven Development / Spec-Driven Development</p>
+        </article>
+
+        <article class="service-card">
+          <h3>要件定義・設計</h3>
+          <p>GEAR.indigoによる要件定義書・設計書の生成</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Backend</h3>
+          <p>Flask / SQLite</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Frontend</h3>
+          <p>Jinja2 / JavaScript / Chart.js</p>
+        </article>
+
+        <article class="service-card">
+          <h3>通信・Edge</h3>
+          <p>Raspberry Pi Zero / TWELITE / USB Stick / ARIA</p>
+        </article>
+
+        <article class="service-card">
+          <h3>Cloud / AI</h3>
+          <p>Cloudflare Workers / OpenCode / Claude</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 今後 -->
+  <section class="section">
+    <div class="container">
+      <h2>07｜今後の検証</h2>
+
+      <div class="card">
+        <ul class="info-list">
+          <li>異常検知・アラート機能</li>
+          <li>衛生管理に必要な帳票生成</li>
+          <li>長期稼働・安定性</li>
+          <li>現場での運用性</li>
+          <li>クラウドへのデータ同期</li>
+        </ul>
+      </div>
+
+      <p style="margin-top:20px;">
+        <strong>現在は技術検証段階です。</strong><br>
+        実環境での運用を想定しながら、低コスト・容易な導入・継続的なデータ収集を検証しています。
+      </p>
+    </div>
+  </section>
+
+  <!-- YouTube -->
+  <section class="section alt">
+    <div class="container">
+      <h2>08｜動画デモ</h2>
+
+      <div class="card">
+        <h3>実装デモを動画で見る</h3>
+        <p>
+          Raspberry Pi × Offline IoTの実装イメージを動画で紹介しています。
+        </p>
+
+        <p style="margin-top:18px;">
+          <a
+            class="btn"
+            href="https://www.youtube.com/shorts/xRO0jsfsLnA"
+            target="_blank"
+            rel="noopener noreferrer"
+          >YouTubeで見る</a>
+        </p>
+      </div>
+
+      <p style="margin-top:24px;">
+        <a href="index.html#projects">← 技術検証へ戻る</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav">
+      <a href="privacy.html">プライバシーポリシー</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const btn = document.getElementById('menuBtn');
+const nav = document.getElementById('nav');
+
+if(btn) {
+  btn.addEventListener('click', ()=>{
+    nav.classList.toggle('open');
+  });
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
