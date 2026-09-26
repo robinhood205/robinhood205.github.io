@@ -4,8 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>TWELITE CUE × IoT | ara nova</title>
-  <meta name="description" content="TWELITE CUEを活用したIoTセンシングシステムの技術検証・開発実績。">
+  <meta name="description" content="TWELITE CUEを実際に用いて、無線センシングからデータ収集・可視化までを検証したIoT技術開発事例。">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
+    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
+    .case-image.small{max-height:300px}
+    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
+    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
+    .case-card h3{color:var(--accent-2);margin-bottom:8px}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .tech-tag{padding:8px 12px;border:1px solid #dbe8fb;border-radius:999px;background:#fff;color:var(--muted);font-size:.92rem}
+    .flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:24px}
+    .flow-item{padding:12px 16px;border:1px solid #dbe8fb;border-radius:8px;background:#fff;font-weight:600}
+    .flow-arrow{color:var(--accent-2);font-weight:700}
+    .evidence{margin-top:18px;padding:14px 16px;border-left:4px solid var(--accent);background:#fff;border-radius:4px;color:var(--muted)}
+    @media(max-width:920px){.case-grid{grid-template-columns:1fr}.flow-arrow{display:none}.flow-item{width:100%;text-align:center}}
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -20,124 +36,137 @@
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
+
 <main>
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
         <h1>TWELITE CUE × IoT</h1>
-        <p>小型・省電力の無線センサー「TWELITE CUE」を活用し、モノの動き・開閉・位置などの状態を取得するIoTセンシングシステムの技術検証を行いました。</p>
-        <a class="btn" href="#video">実証動画を見る</a>
+        <p>小型・省電力の無線センサー「TWELITE CUE」を実際に使用し、センサーによる状態取得、無線通信、データ収集・可視化までを自ら構築・検証した技術開発事例です。</p>
+        <p class="case-hero-note">2021年8月｜実機を用いたIoT技術検証</p>
+        <a class="btn" href="#evidence" style="margin-top:18px;">実際の検証内容を見る</a>
       </div>
       <div class="hero-image" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="section container">
-    <h2>01｜概要</h2>
+    <h2>01｜実際に行った技術検証</h2>
     <div class="two-col">
       <div>
-        <p>小型無線タグを活用し、設備やモノの状態を無線で取得するIoTシステムの可能性を検証した技術開発事例です。</p>
-        <p>センサーから無線で送信された情報をUSBスティックで収集し、データ収集・処理・可視化までを組み合わせる構成を検証しました。</p>
+        <p>2021年にTWELITE CUEを実際のセンサーとして使用し、モノの状態を無線で取得するIoTシステムを検証しました。</p>
+        <p>小型無線タグだけでなく、USBスティックを用いた受信、データ収集・処理、可視化までを組み合わせ、IoTシステムとしての構成を実際に確認しました。</p>
+        <div class="evidence"><strong>開発者：</strong>牛宇　／　<strong>実施時期：</strong>2021年8月</div>
       </div>
-      <div class="card">
-        <strong>検証テーマ</strong>
-        <ul class="info-list">
-          <li>小型・省電力無線センサーの活用</li>
-          <li>モノの動き・開閉・位置の取得</li>
-          <li>無線通信によるデータ収集</li>
-          <li>IoTデータの可視化</li>
-          <li>低コスト・簡易構築の可能性</li>
-        </ul>
+      <div>
+        <img class="case-image small" src="/images/twelite-cue-device.png" alt="実際に使用したTWELITE CUE">
+        <p class="case-caption">実際に使用したTWELITE CUE</p>
       </div>
     </div>
-    <img class="project-image" src="/images/twelite-cue-device.png" alt="TWELITE CUE センサー">
-    <p class="project-caption">小型無線タグ TWELITE CUE</p>
   </section>
 
-  <section id="architecture" class="section alt">
+  <section id="evidence" class="section alt">
     <div class="container">
-      <h2>02｜システム構成・技術検証</h2>
+      <h2>02｜実機による検証</h2>
+      <p>実際にセンサーを対象物へ取り付け、状態を取得する検証を行いました。</p>
       <div class="two-col">
         <div>
-          <p>USBスティックをパソコンに接続して親機として利用し、必要に応じてUSB給電の中継機を組み合わせる構成を検証しました。</p>
-          <img class="project-image" src="/images/twelite-gateway.png" alt="TWELITE 親機の構成">
+          <img class="case-image" src="/images/twelite-cue-mounted.jpg" alt="実際のTWELITE CUE設置検証">
+          <p class="case-caption">実機を対象物に取り付けて行った検証</p>
         </div>
         <div>
-          <img class="project-image" src="/images/twelite-relay.png" alt="TWELITE 中継機の構成">
-          <p class="project-caption">USB給電による中継機</p>
+          <h3 style="color:var(--accent-2);margin-top:18px;">検証した状態</h3>
+          <ul class="info-list">
+            <li>衝撃・振動</li>
+            <li>傾斜・転倒</li>
+            <li>移動</li>
+            <li>開閉</li>
+            <li>存在・近接</li>
+          </ul>
+          <p style="margin-top:16px;color:var(--muted);">センサーから無線で送信された情報を受信し、モノの状態を把握する仕組みを検証しました。</p>
         </div>
       </div>
-      <img class="project-image-wide" src="/images/twelite-dashboard-wide.png" alt="IoTデータ可視化画面">
-      <p class="project-caption">取得したデータの可視化</p>
     </div>
   </section>
 
   <section class="section container">
-    <h2>03｜実現できること</h2>
-    <div class="services-grid">
-      <article class="service-card">
-        <h3>モノの動きを知る</h3>
-        <p>衝撃、振動、傾斜、転倒、移動、開閉などの状態を無線で取得する活用方法を検証しました。</p>
-        <img class="project-image" src="/images/twelite-cue-mounted.png" alt="TWELITE CUEの設置例">
-      </article>
-      <article class="service-card">
-        <h3>モノの開閉を知る</h3>
-        <p>磁石の有無を利用して開閉状態を取得し、戸締まり確認や設備の稼働状態把握などへの応用を想定しました。</p>
-        <div class="project-image-grid">
-          <img src="/images/twelite-door-01.png" alt="開閉検知の設置例1">
-          <img src="/images/twelite-door-02.png" alt="開閉検知の設置例2">
+    <h2>03｜通信・データ収集</h2>
+    <p>USBスティックをパソコンに接続して親機として利用し、無線センサーから送信されたデータを収集する構成を検証しました。USB給電による中継機の構成も確認しています。</p>
+    <div class="flow">
+      <div class="flow-item">TWELITE CUE</div><div class="flow-arrow">→</div>
+      <div class="flow-item">無線通信</div><div class="flow-arrow">→</div>
+      <div class="flow-item">USBスティック</div><div class="flow-arrow">→</div>
+      <div class="flow-item">PC / サーバー</div>
+    </div>
+    <div class="evidence">実際の構成では、Pythonによるインタフェース開発、SQLによるデータ処理・可視化を行い、MySQL・CentOS・Grafanaなどを組み合わせました。</div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>04｜データの可視化</h2>
+      <div class="two-col">
+        <div>
+          <p>収集したデータを処理し、状態を確認できるよう可視化まで実装・検証しました。</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">CentOS</span>
+            <span class="tech-tag">Grafana</span>
+          </div>
         </div>
+        <div>
+          <img class="case-image" src="/images/twelite-dashboard-wide.png" alt="実際に構築したIoTデータ可視化画面">
+          <p class="case-caption">実際に構築・検証したデータ可視化画面</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>05｜技術検証で確認した特徴</h2>
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>長時間動作</h3>
+        <p>CR2032コイン型電池を利用し、CUEでは1分に1度の定期送信の場合、約2年という参考値が示されています。</p>
       </article>
-      <article class="service-card">
-        <h3>モノの位置を知る</h3>
-        <p>定期的なビーコンと受信電波強度を利用し、モノの存在・近接などを把握する活用方法を検証しました。</p>
-        <img class="project-image" src="/images/twelite-usb-stick.png" alt="TWELITE USBスティック">
+      <article class="case-card">
+        <h3>応用範囲</h3>
+        <p>スーパー、工場、倉庫、事務所など、モノの状態を把握したいさまざまな現場への活用を検討しました。</p>
+      </article>
+      <article class="case-card">
+        <h3>簡易構築・低コスト</h3>
+        <p>小型無線センサー、USBスティック、既存のPC・サーバー環境を組み合わせた構成を検証しました。</p>
       </article>
     </div>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>04｜実機・データ検証</h2>
-      <div class="project-image-grid">
-        <div><img src="/images/twelite-cue-app-01.png" alt="データ表示画面1"><p class="project-caption">センサーデータ表示</p></div>
-        <div><img src="/images/twelite-cue-app-02.png" alt="データ表示画面2"><p class="project-caption">状態・グラフ表示</p></div>
-        <div><img src="/images/twelite-data-history.png" alt="履歴データ画面"><p class="project-caption">履歴データ</p></div>
-      </div>
-      <img class="project-image" src="/images/twelite-dashboard.png" alt="IoTダッシュボード">
-      <p class="project-caption">IoTデータの可視化・確認画面</p>
-      <div class="project-image-grid">
-        <div><img src="/images/twelite-install-01.png" alt="センサー設置例1"><p class="project-caption">設置例</p></div>
-        <div><img src="/images/twelite-install-02.png" alt="センサー設置例2"><p class="project-caption">設置例</p></div>
-        <div><img src="/images/twelite-install-03.png" alt="センサー設置例3"><p class="project-caption">設置例</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <h2>05｜特徴・技術構成</h2>
-    <div class="services-grid">
-      <article class="service-card"><h3>長時間動作</h3><p>CR2032コイン型電池による長時間動作を特徴とし、CUEでは1分に1度の定期送信の場合、約2年という参考値を確認しました。</p></article>
-      <article class="service-card"><h3>応用範囲</h3><p>スーパーの売場、工場、倉庫、事務所など、モノの状態を把握したいさまざまな現場への応用を想定しました。</p></article>
-      <article class="service-card"><h3>簡易構築・低コスト</h3><p>Python、SQL、MySQL、CentOS、Grafanaなどを組み合わせ、小規模なIoTシステムとして検証しました。</p></article>
-    </div>
-  </section>
-
-  <section id="video" class="section alt">
-    <div class="container">
       <h2>06｜実証動画</h2>
-      <p>TWELITE CUEを活用したIoTセンシングの検証内容を動画で紹介しています。</p>
+      <p>実際に行ったTWELITE CUEのIoT技術検証を動画でも紹介しています。</p>
       <iframe style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;margin-top:22px;box-shadow:0 8px 30px rgba(11,26,43,.06);" src="https://www.youtube.com/embed/wjFoiXtQmqE" title="TWELITE CUE × IoT 技術検証" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </section>
 
   <section class="section container">
     <h2>07｜現在のIoT技術検証へ</h2>
-    <p>この技術検証で取り組んだ「無線センサーによる現場データ取得・収集・可視化」という経験を基盤に、現在はRaspberry Pi、TWELITE、AWSなどを組み合わせたオフラインIoTや現場データ活用の技術検証へ発展させています。</p>
+    <p>この技術検証で取り組んだ「無線センサーによる現場データ取得・収集・可視化」という経験を基盤に、現在はRaspberry Pi、TWELITE、Cloudなどを組み合わせたIoTシステムの技術検証へ発展させています。</p>
     <p style="margin-top:18px;"><a class="btn" href="raspberry-pi-offline-iot-v2.html">Raspberry Pi × Offline IoT</a></p>
   </section>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><div>© <span id="year"></span> ara nova</div><nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav></div></footer>
-<script>const btn=document.getElementById('menuBtn');const nav=document.getElementById('nav');if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+const btn=document.getElementById('menuBtn');
+const nav=document.getElementById('nav');
+if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
