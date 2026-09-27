@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TWELITE × 屋内位置推定 | ara nova</title>
+  <meta name="description" content="無線信号の強度（RSSI）を用いて屋内の大まかな位置を推定するIoT技術検証事例。">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
+    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
+    .case-image.small{max-height:300px}
+    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
+    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
+    .case-card h3{color:var(--accent-2);margin-bottom:8px}
+    .device-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+    @media(max-width:920px){.case-grid{grid-template-columns:1fr}.device-pair{grid-template-columns:1fr}}
+    .nav .has-dropdown{position:relative;display:flex;align-items:center}
+    .nav .dropdown-menu{
+      display:none;position:absolute;top:100%;left:0;
+      background:#fff;border:1px solid #e6eef6;border-radius:8px;
+      box-shadow:0 6px 20px rgba(11,26,43,.08);
+      min-width:200px;padding:6px 0;z-index:30;
+    }
+    .nav .has-dropdown:hover .dropdown-menu{display:block}
+    .nav .dropdown-menu a{
+      display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
+    }
+    .nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#about">会社情報</a>
+      <a href="index.html#projects">技術検証</a>
+      <div class="has-dropdown">
+        <a href="#">過去実績</a>
+        <div class="dropdown-menu">
+          <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
+          <a href="https://aranova.jp/twelite-door-iot.html">開閉検知IoT</a>
+          <a href="https://aranova.jp/twelite-pal-iot.html">車内環境モニタリング</a>
+          <a href="https://aranova.jp/twelite-location-iot.html">屋内位置推定</a>
+        </div>
+      </div>
+      <a href="index.html#contact">お問い合わせ</a>
+    </nav>
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <h1>TWELITE × 屋内位置推定</h1>
+        <p>無線信号の強度（RSSI）を用いて、屋内における大まかな位置を推定する技術を検証しました。</p>
+        <p class="case-hero-note">2021年8月｜実機を用いたIoT技術検証</p>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>01｜位置推定の技術検証</h2>
+    <div class="two-col">
+      <div>
+        <p>複数の受信機（中継器）を屋内の各所に設置し、対象物や人が持つ発信機からの電波強度を比較することで、どの受信機に最も近いか＝「どのエリアにいるか」を推定する仕組みを検証しました。</p>
+        <p>GPSが届きにくい屋内でも、大まかな位置（部屋単位）を把握できる点が特徴です。</p>
+      </div>
+      <div>
+        <img class="case-image small" src="/images/twelite-relay.png" alt="屋内位置推定の仕組み（原理図）">
+        <p class="case-caption">発信機と複数の受信機による位置推定の仕組み</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>02｜設置した中継器</h2>
+      <p>用途に応じて2種類の中継器を検証しました。</p>
+      <div class="device-pair">
+        <div>
+          <img class="case-image small" src="/images/twelite-ap-mobile.png" alt="モバイルバッテリー給電型の中継器">
+          <p class="case-caption">モバイルバッテリー給電型：配線不要で設置場所を柔軟に変更できる</p>
+        </div>
+        <div>
+          <img class="case-image small" src="/images/twelite-ap.png" alt="コンセント直結型の中継器">
+          <p class="case-caption">コンセント直結型：常設に適し、電池切れの心配がない</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>03｜実際の検証結果</h2>
+    <div class="two-col">
+      <div>
+        <p>自宅内で実際に位置推定を検証した例です。対象者の現在位置（キッチン・リビングなど）を確認できるほか、時刻ごとの移動履歴、エリアごとの滞在記録数もあわせて確認できました。</p>
+      </div>
+      <div>
+        <img class="case-image small" src="/images/twelite-location.png" alt="自宅での位置推定検証画面">
+        <p class="case-caption">自宅での位置推定検証画面（現在位置・移動履歴）</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>04｜技術検証で確認したポイント</h2>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>リアルタイムなエリア把握</h3>
+          <p>現在どの部屋にいるかを即座に確認できることを確認しました。</p>
+        </article>
+        <article class="case-card">
+          <h3>移動履歴の記録</h3>
+          <p>時系列で場所の変化を追跡・記録できる構成を検証しました。</p>
+        </article>
+        <article class="case-card">
+          <h3>滞在時間の分析</h3>
+          <p>エリアごとの滞在記録から、行動パターンを把握できることを確認しました。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>05｜活用イメージ</h2>
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>高齢者の見守り</h3>
+        <p>どの部屋で過ごしているかを把握し、異常の早期発見につなげる活用を想定しています。</p>
+      </article>
+      <article class="case-card">
+        <h3>子供の見守り</h3>
+        <p>自宅内での居場所を確認できる用途を想定しています。</p>
+      </article>
+      <article class="case-card">
+        <h3>工場・倉庫内の位置管理</h3>
+        <p>人やモノの所在エリアを把握する用途への応用を検討できます。</p>
+      </article>
+      <article class="case-card">
+        <h3>店舗内の動線分析</h3>
+        <p>来店者の滞在エリア傾向を把握する用途への応用を検討できます。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>06｜IoT技術検証の広がり</h2>
+      <p>屋内位置推定という経験を基盤に、環境データ・開閉検知などと組み合わせた、より高度な見守り・現場管理システムの検証を進めています。</p>
+      <p style="margin-top:18px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+const btn=document.getElementById('menuBtn');
+const nav=document.getElementById('nav');
+if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
