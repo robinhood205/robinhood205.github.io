@@ -21,18 +21,36 @@
     .flow-arrow{color:var(--accent-2);font-weight:700}
     .evidence{margin-top:18px;padding:14px 16px;border-left:4px solid var(--accent);background:#fff;border-radius:4px;color:var(--muted)}
     @media(max-width:920px){.case-grid{grid-template-columns:1fr}.flow-arrow{display:none}.flow-item{width:100%;text-align:center}}
+    .nav .has-dropdown{position:relative;display:flex;align-items:center}
+.nav .dropdown-menu{
+  display:none;position:absolute;top:100%;left:0;
+  background:#fff;border:1px solid #e6eef6;border-radius:8px;
+  box-shadow:0 6px 20px rgba(11,26,43,.08);
+  min-width:180px;padding:6px 0;z-index:30;
+}
+.nav .has-dropdown:hover .dropdown-menu{display:block}
+.nav .dropdown-menu a{
+  display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
+}
+.nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a>
-      <a href="index.html#contact">お問い合わせ</a>
-    </nav>
+<nav class="nav" id="nav">
+  <a href="index.html">ホーム</a>
+  <a href="index.html#about">会社情報</a>
+  <a href="index.html#projects">技術検証</a>
+  <div class="has-dropdown">
+    <a href="#">過去実績</a>
+    <div class="dropdown-menu">
+      <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
+    </div>
+  </div>
+  <a href="index.html#contact">お問い合わせ</a>
+</nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
