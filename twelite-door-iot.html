@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TWELITE CUE × 開閉検知IoT | ara nova</title>
+  <meta name="description" content="TWELITE CUEを用いて、開閉による状態変化を無線で取得するIoT技術検証事例。">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
+    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
+    .case-image.small{max-height:300px}
+    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
+    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
+    .case-card h3{color:var(--accent-2);margin-bottom:8px}
+    @media(max-width:920px){.case-grid{grid-template-columns:1fr}}
+    .nav .has-dropdown{position:relative;display:flex;align-items:center}
+    .nav .dropdown-menu{
+      display:none;position:absolute;top:100%;left:0;
+      background:#fff;border:1px solid #e6eef6;border-radius:8px;
+      box-shadow:0 6px 20px rgba(11,26,43,.08);
+      min-width:200px;padding:6px 0;z-index:30;
+    }
+    .nav .has-dropdown:hover .dropdown-menu{display:block}
+    .nav .dropdown-menu a{
+      display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
+    }
+    .nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html">ホーム</a>
+      <a href="index.html#about">会社情報</a>
+      <a href="index.html#projects">技術検証</a>
+      <div class="has-dropdown">
+        <a href="#">過去実績</a>
+        <div class="dropdown-menu">
+          <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
+          <a href="https://aranova.jp/twelite-door-iot.html">開閉検知IoT</a>
+        </div>
+      </div>
+      <a href="index.html#contact">お問い合わせ</a>
+    </nav>
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <h1>TWELITE CUE × 開閉検知IoT</h1>
+        <p>TWELITE CUEを対象物に取り付け、開閉による状態変化を無線で取得する技術を検証しました。ドアや窓、収納庫など、「開いた・閉じた」という状態を知りたい場所への後付け利用を想定しています。</p>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>01｜開閉検知の技術検証</h2>
+    <div class="two-col">
+      <div>
+        <p>TWELITE CUEを対象物に取り付け、開閉による状態変化を無線で取得する技術を検証しました。</p>
+        <p>ドアや窓、収納庫など、「開いた・閉じた」という状態を知りたい場所への後付け利用を想定しています。</p>
+        <p>今回の検証では、冷蔵・冷凍庫の開閉状態を検知対象としました。</p>
+      </div>
+      <div>
+        <img class="case-image small" src="/images/twelite-door-01.png" alt="冷蔵庫に取り付けたTWELITE CUE">
+        <p class="case-caption">冷蔵庫に取り付けたTWELITE CUE</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>02｜冷蔵・冷凍庫開閉回数の見える化</h2>
+      <div class="two-col">
+        <div>
+          <p>一日の開閉回数と状態変化を検知し、把握できる形を検証しました。</p>
+        </div>
+        <div>
+          <img class="case-image small" src="/images/twelite-cue-app-03.png" alt="開閉回数の見える化画面">
+          <p class="case-caption">冷蔵庫21回・冷凍庫13回の開閉を検知</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>03｜スマートフォンで確認</h2>
+    <p>センサーが検知した開閉イベントをスマートフォン側で確認し、現在の開閉状態と、これまでの開閉回数を把握できる形を検証しています。</p>
+  </section>
+
+  <section class="section alt">
+  <div class="container">
+    <h2>04｜活用イメージ</h2>
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>郵便受け</h3>
+        <img class="case-image small" src="/images/mailbox-01.png" alt="郵便受けに取り付けたTWELITE CUE">
+        <p>投函による開閉を検知し、封筒が入ったらお知らせします。監視カメラと異なり、リアルタイムに通知できる点が強みです。</p>
+      </article>
+      <article class="case-card">
+        <h3>トイレ・水回り</h3>
+        <img class="case-image small" src="/images/toilet-01.png" alt="トイレ蓋に取り付けたTWELITE CUE">
+        <p>蓋の開閉を検知し、利用状況を把握します。監視カメラより違和感が少なく、設置しやすい点が特徴です。</p>
+      </article>
+      <article class="case-card">
+        <h3>収納庫・ボックス</h3>
+        <p>収納庫や設備ボックスなど、開閉状態を知りたい場所への利用を想定します。</p>
+      </article>
+      <article class="case-card">
+        <h3>設備・機器</h3>
+        <p>機器カバーなどの開閉状態を取得し、利用状況の確認に活用できます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+  <section class="section container">
+    <h2>05｜技術検証のポイント</h2>
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>後付け</h3>
+        <p>既存のドアや郵便受けなどにセンサーを取り付け、大きな設備変更を行わずに状態検知を検証します。</p>
+      </article>
+      <article class="case-card">
+        <h3>無線センシング</h3>
+        <p>開閉による状態変化を無線で取得し、配線を増やさずに状態を把握します。</p>
+      </article>
+      <article class="case-card">
+        <h3>スマートフォンで確認</h3>
+        <p>センサーから取得した状態をスマートフォンで確認し、現場の状態を見える化します。</p>
+      </article>
+      <article class="case-card">
+        <h3>応用可能性</h3>
+        <p>郵便受けだけでなく、ドア・窓・収納庫・設備など、「開閉を知りたい場所」への展開を検討できます。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>06｜IoT技術検証の広がり</h2>
+      <p>小型センサーによる状態取得を起点に、現場の「動き」「開閉」「温度」などを可視化するIoT技術の検証を進めています。</p>
+      <p style="margin-top:18px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+const btn=document.getElementById('menuBtn');
+const nav=document.getElementById('nav');
+if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
