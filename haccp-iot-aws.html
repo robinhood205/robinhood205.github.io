@@ -3,21 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>HACCP × IoT / AWS | ara nova</title>
-  <meta name="description" content="HACCP × IoT / AWS。温湿度データを自動収集・保存し、現場の管理負担軽減と異常検知を検証するIoTシステム。">
+  <title>HACCP支援IoT | ara nova</title>
+  <meta name="description" content="温湿度データを自動収集・保存し、食品現場における記録管理、異常検知、現場負担の軽減を検証するIoTシステム（AWS）の技術検証。">
   <link rel="stylesheet" href="style.css">
+  <script src="works.js" defer></script>
+  <script src="tech.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
-
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color: #0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a>
-      <a href="index.html#contact">お問い合わせ</a>
-    </nav>
+    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
+    <nav class="nav" id="nav"></nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -26,138 +23,131 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1>HACCP × IoT / AWS</h1>
+        <span class="tag">技術検証</span>
+        <h1>HACCP支援IoT</h1>
         <p>温湿度データを自動収集・保存し、食品現場における記録管理、異常検知、現場負担の軽減を検証するIoTシステムです。</p>
-       <a class="btn" href="#architecture">サービス紹介・システム構成</a>
+        <p class="case-hero-note">技術：AWS　｜　種別：<a href="index.html#projects">技術検証</a>（検証中）</p>
+        <a class="btn" href="#architecture">システム構成を見る</a>
       </div>
       <div class="hero-image" aria-hidden="true"></div>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>01｜HACCP対応における課題</h2>
-    <div class="two-col">
-      <div class="card">
-        <h3>保健所・コンプライアンスの視点</h3>
-        <ul class="info-list">
-          <li>記録の信頼性不足</li>
-          <li>管理体制の形骸化</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>経営者・現場の視点</h3>
-        <ul class="info-list">
-          <li>高額な初期投資の壁</li>
-          <li>現場のオペレーション負担</li>
-        </ul>
+  <section class="section alt">
+    <div class="container">
+      <h2>HACCP対応における課題</h2>
+      <div class="two-col">
+        <div class="case-card">
+          <h3>保健所・コンプライアンスの視点</h3>
+          <ul class="info-list">
+            <li>記録の信頼性不足</li>
+            <li>管理体制の形骸化</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <h3>経営者・現場の視点</h3>
+          <ul class="info-list">
+            <li>高額な初期投資の壁</li>
+            <li>現場のオペレーション負担</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
- <section id="architecture" class="section alt"><div class="container"><h2>02｜サービス紹介・システム構成</h2>
-
-      <div class="services-grid">
-        <article class="service-card">
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2>システム構成</h2>
+      <div class="case-grid">
+        <article class="case-card">
           <h3>① 温湿度計測センサー</h3>
           <p><strong>メーカー：</strong>モノワイヤレス株式会社</p>
-          <ul>
+          <ul class="info-list">
             <li>温湿度を15分間隔で自動計測</li>
             <li>既存設備に後付け可能（レトロフィット）</li>
           </ul>
         </article>
-
-        <article class="service-card">
+        <article class="case-card">
           <h3>② GATEWAY</h3>
           <p><strong>メーカー：</strong>モノワイヤレス株式会社</p>
-          <ul>
+          <ul class="info-list">
             <li>センサーからデータを収集</li>
             <li>Wi-Fiを通じてクラウドへ送信</li>
           </ul>
         </article>
-
-        <article class="service-card">
+        <article class="case-card">
           <h3>③ クラウド基盤</h3>
           <p><strong>AWS（Amazon Web Services）</strong>を採用</p>
-          <ul>
+          <ul class="info-list">
             <li>24時間安定稼働・データ自動保存</li>
             <li>スマホ・PCからリアルタイム確認可能</li>
           </ul>
         </article>
       </div>
-
-      <div class="card" style="margin-top:28px;">
-        <img src="/images/haccp-iot-architecture.png"
-             alt="HACCP × IoT / AWS システム構成図"
-             style="display:block;width:100%;height:auto;border-radius:6px;">
+      <div class="diagram">
+        <img src="images/haccp-iot-architecture.webp" width="1798" height="905" loading="lazy" alt="HACCP支援IoT システム構成図">
       </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <h2>03｜実装デモ</h2>
-    <div class="two-col">
-      <div class="card">
-        <img src="/images/haccp-iot-sensor-refrigerator.png"
-             alt="冷蔵庫に設置した温湿度センサー"
-             style="display:block;width:100%;height:auto;border-radius:6px;">
-        <h3 style="margin-top:14px;">温湿度計測センサー</h3>
-        <p>既存設備に後付けする形で温湿度を計測します。</p>
-      </div>
-
-      <div class="card">
-        <img src="/images/haccp-iot-gateway.png"
-             alt="GATEWAY"
-             style="display:block;width:100%;height:auto;border-radius:6px;">
-        <h3 style="margin-top:14px;">GATEWAY</h3>
-        <p>センサーからデータを収集し、Wi-Fi経由でクラウドへ送信します。</p>
-      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
     </div>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>04｜システム Demo</h2>
-
-      <div class="card">
-        <h3>履歴データ照会</h3>
-        <p>デバイスを選択し、期間を指定して温度・湿度の履歴データを確認できます。</p>
-        <img src="/images/haccp-iot-dashboard.png"
-             alt="履歴データ照会画面"
-             style="display:block;width:100%;height:auto;margin-top:18px;border-radius:6px;">
-      </div>
-
-      <div class="card" style="margin-top:24px;">
-        <h3>異常検知メール</h3>
-        <p>設定した温度範囲から外れた場合、メールによるアラート通知を行います。</p>
-        <img src="/images/haccp-iot-alert-email.png"
-             alt="温度アラートメール"
-             style="display:block;width:min(100%,420px);height:auto;margin:18px auto 0;border-radius:6px;">
+      <h2>実装デモ</h2>
+      <div class="device-pair">
+        <div>
+          <img class="case-image small" src="images/haccp-iot-sensor-refrigerator.webp" width="529" height="705" loading="lazy" alt="冷蔵庫に設置した温湿度センサー">
+          <p class="case-caption"><strong>温湿度計測センサー</strong><br>既存設備に後付けする形で温湿度を計測します。</p>
+        </div>
+        <div>
+          <img class="case-image small" src="images/haccp-iot-gateway.webp" width="302" height="418" loading="lazy" alt="GATEWAY">
+          <p class="case-caption"><strong>GATEWAY</strong><br>センサーからデータを収集し、Wi-Fi経由でクラウドへ送信します。</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>05｜技術構成</h2>
-    <div class="card">
-      <ul class="info-list">
-        <li><strong>Sensor：</strong>TWELITE系 温湿度センサー</li>
-        <li><strong>Gateway：</strong>TWELITE Gateway</li>
-        <li><strong>Cloud：</strong>AWS IoT Core / DynamoDB / Lambda / API Gateway / S3</li>
-        <li><strong>Frontend：</strong>Web Browser（PC・スマートフォン）</li>
-        <li><strong>通信：</strong>センサー → Gateway → Wi-Fi → AWS Cloud</li>
-      </ul>
+  <section class="section">
+    <div class="container">
+      <h2>システム画面</h2>
+      <p><strong>履歴データ照会</strong></p>
+      <p>デバイスを選択し、期間を指定して温度・湿度の履歴データを確認できます。</p>
+      <div class="diagram">
+        <img src="images/haccp-iot-dashboard.webp" width="1216" height="682" loading="lazy" alt="履歴データ照会画面">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+      <p style="margin-top:32px;"><strong>異常検知メール</strong></p>
+      <p>設定した温度範囲から外れた場合、メールによるアラート通知を行います。</p>
+      <img class="case-image small" src="images/haccp-iot-alert-email.webp" width="358" height="795" loading="lazy" alt="温度アラートメール">
+      <p class="case-caption">温度アラートメール</p>
     </div>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>06｜今後の検証</h2>
-      <div class="card">
-        <p>実際の食品現場を想定し、温湿度データの継続的な記録、異常検知、記録作業の効率化などを検証していきます。</p>
-      </div>
-            <p style="margin-top:24px;">
-        <a href="index.html#projects">← 技術検証へ戻る</a>
-      </p>
+      <h2>使用技術</h2>
+      <dl class="stack-list">
+        <div><dt>Sensor</dt><dd>TWELITE系 温湿度センサー</dd></div>
+        <div><dt>Gateway</dt><dd>TWELITE Gateway</dd></div>
+        <div><dt>Cloud</dt><dd>AWS IoT Core / DynamoDB / Lambda / API Gateway / S3</dd></div>
+        <div><dt>Frontend</dt><dd>Web Browser（PC・スマートフォン）</dd></div>
+        <div><dt>通信</dt><dd>センサー → Gateway → Wi-Fi → AWS Cloud</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>今後の検証</h2>
+      <p>実際の食品現場を想定し、温湿度データの継続的な記録、異常検知、記録作業の効率化などを検証していきます。</p>
+    </div>
+  </section>
+
+  <section class="section tech">
+    <div class="container">
+      <h2>他の技術検証</h2>
+      <div class="services-grid" id="otherTech"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html#projects">技術検証一覧へ戻る</a></p>
     </div>
   </section>
 </main>
@@ -168,13 +158,8 @@
     <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
   </div>
 </footer>
-
 <script>
-const btn=document.getElementById('menuBtn');
-const nav=document.getElementById('nav');
-if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>

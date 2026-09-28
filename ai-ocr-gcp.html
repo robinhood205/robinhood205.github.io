@@ -3,76 +3,134 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AI × OCR / GCP | ara nova</title>
-  <meta name="description" content="AI × OCR / GCP。中古スマートフォンと生成AIによる画像解析を活用し、アナログ計器などの現場情報を低コストでデジタル化する技術検証。">
+  <title>AI × OCR | ara nova</title>
+  <meta name="description" content="中古スマートフォンと生成AIによる画像解析で、アナログ計器などの現場情報を低コストでデジタル化する技術検証。">
   <link rel="stylesheet" href="style.css">
+  <script src="works.js" defer></script>
+  <script src="tech.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a><a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a><a href="index.html#contact">お問い合わせ</a>
-    </nav>
+    <nav class="nav" id="nav"></nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
+
 <main>
-<section class="hero"><div class="hero-inner container"><div class="hero-text">
-  <h1>AI × OCR / GCP</h1>
-  <p>中古スマートフォンと生成AIによる画像解析を活用し、アナログ計器などの現場情報を低コストでデジタル化する技術検証です。</p>
-  <a class="btn" href="#demo">実装デモ</a>
-</div><div class="hero-image" aria-hidden="true"></div></div></section>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <span class="tag">技術検証</span>
+        <h1>AI × OCR</h1>
+        <p>中古スマートフォンと生成AIによる画像解析を活用し、アナログ計器などの現場情報を低コストでデジタル化する技術検証です。</p>
+        <p class="case-hero-note">技術：Google Cloud　｜　種別：<a href="index.html#projects">技術検証</a>（検証中）</p>
+        <a class="btn" href="#demo">実装デモを見る</a>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
 
-<section class="section container"><h2>01｜課題</h2><div class="card">
-  <h3>DX初期投資の壁</h3>
-  <p>既存設備を活用しながら、目視で行っていた現場確認をデジタル化することを目指します。</p>
-</div></section>
+  <section class="section">
+    <div class="container">
+      <h2>課題</h2>
+      <p><strong>DX初期投資の壁</strong></p>
+      <p>既存設備を活用しながら、目視で行っていた現場確認をデジタル化することを目指します。</p>
+    </div>
+  </section>
 
-<section class="section alt"><div class="container"><h2>02｜中古スマホによる「画像」のデジタル化</h2>
-<div class="two-col"><div class="card">
-  <p>メーターの数値やランプの状態など、目視で行っていた確認作業を自動化します。</p>
-  <h3 style="margin-top:18px;">特徴</h3>
-  <ul><li>画像から数値を自動判別。</li><li>アナログ針、旧式液晶、警告灯など多様な表示に対応。</li></ul>
-  <ul><li>現場のリアル情報をどこでもいつでも確認可能。</li><li>安価かつ迅速に導入可能。</li></ul>
-</div></div></div></section>
+  <section class="section alt">
+    <div class="container">
+      <h2>解決アプローチ</h2>
+      <p>中古スマホによる「画像」のデジタル化。メーターの数値やランプの状態など、目視で行っていた確認作業を自動化します。</p>
+      <p>温湿度計などのアナログ計器をスマートフォンで撮影し、生成AIによる画像解析を活用して測定値を自動認識します。事前に計器情報を定義することで、既存設備を活用した低コストなデジタル化を実現します。</p>
+      <ul class="info-list">
+        <li>画像から数値を自動判別。</li>
+        <li>アナログ針、旧式液晶、警告灯など多様な表示に対応。</li>
+        <li>現場のリアル情報をどこでもいつでも確認可能。</li>
+        <li>安価かつ迅速に導入可能。</li>
+      </ul>
+    </div>
+  </section>
 
-<section class="section container"><h2>03｜概要</h2><div class="card">
-  <p>温湿度計などのアナログ計器をスマートフォンで撮影し、生成AIによる画像解析を活用して測定値を自動認識します。</p>
-  <p style="margin-top:12px;">事前に計器情報を定義することで、既存設備を活用した低コストなデジタル化を実現します。</p>
-</div></section>
+  <section class="section">
+    <div class="container">
+      <h2>仕組み</h2>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>高精度モデル</h3>
+          <p>初回のみ高精度モデルによる計器情報の学習および設定を実施します。</p>
+        </article>
+        <article class="case-card">
+          <h3>軽量モデル</h3>
+          <p>通常運用時は軽量モデルによる高速・低コストな自動解析を実現します。</p>
+        </article>
+        <article class="case-card">
+          <h3>JSONデータ化</h3>
+          <p>温度・湿度データをJSON形式で構造化し、端末内へ保存します。</p>
+        </article>
+      </div>
+      <div class="evidence"><strong>専用機器不要。</strong>既存設備を活用したDX化を目指します。</div>
+    </div>
+  </section>
 
-<section class="section alt"><div class="container"><h2>04｜特徴</h2>
-<div class="services-grid">
-  <article class="service-card"><h3>高精度モデル</h3><p>初回のみ高精度モデルによる計器情報の学習および設定を実施します。</p></article>
-  <article class="service-card"><h3>軽量モデル</h3><p>通常運用時は軽量モデルによる高速・低コストな自動解析を実現します。</p></article>
-  <article class="service-card"><h3>JSONデータ化</h3><p>温度・湿度データをJSON形式で構造化し、端末内へ保存します。</p></article>
-</div>
-<div class="card" style="margin-top:18px;"><p><strong>専用機器不要。</strong>既存設備を活用したDX化を目指します。</p></div>
-</div></section>
+  <section id="demo" class="section alt">
+    <div class="container">
+      <h2>実装デモ</h2>
+      <p>デバイス登録、写真撮影、AIによる解析・データ化までの流れです。</p>
+      <div class="diagram">
+        <img src="images/ai-ocr-gcp-demo.webp" width="1045" height="591" loading="lazy" alt="デバイス登録、写真撮影、AIによる解析データ化の実装デモ">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+    </div>
+  </section>
 
-<section id="demo" class="section container"><h2>05｜実装デモ</h2><div class="card">
-  <img src="/images/ai-ocr-gcp-demo.png" alt="デバイス登録、写真撮影、AIによる解析データ化の実装デモ" style="display:block;width:100%;height:auto;border-radius:6px;">
-</div></section>
+  <section id="video" class="section">
+    <div class="container">
+      <h2>デモ動画</h2>
+      <div class="two-col">
+        <div>
+          <p><strong>LLMで実現する アナログメーター読み取り・電子化</strong></p>
+          <p>実装デモを動画で紹介しています。</p>
+        </div>
+        <div>
+          <iframe class="case-video short" src="https://www.youtube.com/embed/FoePjZHQNbs" title="LLMで実現する アナログメーター読み取り・電子化" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="section alt"><div class="container"><h2>06｜使用技術</h2><div class="card">
-<ul class="info-list">
-  <li><strong>開発：</strong>Claude Code / Gemini</li>
-  <li><strong>Cloud：</strong>Google Cloud Platform（GCP）</li>
-  <li><strong>アプリ：</strong>Android Web App</li>
-  <li><strong>データ：</strong>JSON形式で端末内へ保存</li>
-</ul></div></div></section>
+  <section class="section alt">
+    <div class="container">
+      <h2>使用技術</h2>
+      <dl class="stack-list">
+        <div><dt>開発</dt><dd>Claude Code / Gemini</dd></div>
+        <div><dt>Cloud</dt><dd>Google Cloud Platform（GCP）</dd></div>
+        <div><dt>アプリ</dt><dd>Android Web App</dd></div>
+        <div><dt>データ</dt><dd>JSON形式で端末内へ保存</dd></div>
+      </dl>
+    </div>
+  </section>
 
-<section class="section container"><h2>07｜動画デモ</h2><div class="card">
-  <h3>LLMで実現する アナログメーター読み取り・電子化</h3>
-  <p style="margin-top:8px;">実装デモを動画で見る</p>
-  <p style="margin-top:16px;"><a class="btn" href="https://www.youtube.com/shorts/fETHvAO_be8" target="_blank" rel="noopener noreferrer">YouTubeで動画を見る</a></p>
-  <p style="margin-top:24px;">
-        <a href="index.html#projects">← 技術検証へ戻る</a>
-      </p>
-</div></section>
+  <section class="section tech">
+    <div class="container">
+      <h2>他の技術検証</h2>
+      <div class="services-grid" id="otherTech"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html#projects">技術検証一覧へ戻る</a></p>
+    </div>
+  </section>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><div>© <span id="year"></span> ara nova</div><nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav></div></footer>
-<script>const btn=document.getElementById('menuBtn');const nav=document.getElementById('nav');if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body></html>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

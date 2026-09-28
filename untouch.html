@@ -3,54 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Intel RealSense D435i × 非接触操作 | ara nova</title>
-  <meta name="description" content="深度カメラ（Intel RealSense D435i）を用いて、画面に触れずに操作できる非接触UIの技術検証事例。">
+  <title>非接触操作 | ara nova</title>
+  <meta name="description" content="深度カメラを用いて、画面に触れずに操作できる非接触UIの技術を検証した活用事例。">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
-    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
-    .case-image.small{max-height:300px}
-    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
-    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
-    .case-card h3{color:var(--accent-2);margin-bottom:8px}
-    .device-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
-    @media(max-width:920px){.case-grid{grid-template-columns:1fr}.device-pair{grid-template-columns:1fr}}
-    .nav .has-dropdown{position:relative;display:flex;align-items:center}
-    .nav .dropdown-menu{
-      display:none;position:absolute;top:100%;left:0;
-      background:#fff;border:1px solid #e6eef6;border-radius:8px;
-      box-shadow:0 6px 20px rgba(11,26,43,.08);
-      min-width:200px;padding:6px 0;z-index:30;
-    }
-    .nav .has-dropdown:hover .dropdown-menu{display:block}
-    .nav .dropdown-menu a{
-      display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
-    }
-    .nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
-  </style>
+  <script src="works.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a>
-      <div class="has-dropdown">
-        <a href="#">過去実績</a>
-        <div class="dropdown-menu">
-          <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
-          <a href="https://aranova.jp/twelite-door-iot.html">開閉検知IoT</a>
-          <a href="https://aranova.jp/twelite-pal-iot.html">車内環境モニタリング</a>
-          <a href="https://aranova.jp/twelite-location-iot.html">屋内位置推定</a>
-          <a href="https://aranova.jp/peoplecount.html">来店人数分析</a>
-          <a href="https://aranova.jp/untouch.html">非接触操作</a>
-        </div>
-      </div>
-      <a href="index.html#contact">お問い合わせ</a>
-    </nav>
+    <nav class="nav" id="nav"></nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -59,72 +22,79 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1>Intel RealSense D435i × 非接触操作</h1>
+        <span class="tag camera">AIカメラ</span>
+        <h1>非接触操作</h1>
         <p>深度カメラ（Depth Camera）を用いて、画面に触れずに操作できる非接触UIの技術を検証しました。</p>
+        <p class="case-hero-note">使用機器：Intel RealSense D435i（深度カメラ）　｜　種別：<a href="index.html#works">活用事例</a></p>
+        <a class="btn" href="#video">実証動画を見る</a>
       </div>
       <div class="hero-image" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="section container">
-    <h2>01｜使用したデバイス</h2>
+    <h2>概要</h2>
     <div class="two-col">
       <div>
-        <p>Intel RealSense D435iは、深度（距離）情報を取得できるカメラです。指先の位置や動きを空間的に認識できるため、非接触でのタッチ操作の代替手段として検証しました。</p>
+        <p>画面前方に仮想的な「タッチ平面（Virtual touch plane）」を設定し、指がその面を通過したことを検知することでクリック（タッチ）動作として認識する仕組みを検証しました。</p>
+        <p>カメラの垂直視野角を活かし、画面全体をカバーするエリア（Zone A/B）を設計しています。</p>
       </div>
       <div>
-        <img class="case-image small" src="/images/untouch-device.png" alt="Intel RealSense D435i 深度カメラ">
-        <p class="case-caption">使用した深度カメラ Intel RealSense D435i</p>
+        <img class="case-image small" src="images/untouch-principle.png" width="384" height="198" loading="lazy" alt="非接触操作の仕組み（参考構成）">
+        <p class="case-caption">※参考構成図：仮想タッチ平面による検知イメージ</p>
       </div>
     </div>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>02｜非接触操作の仕組み</h2>
-      <p>画面前方に仮想的な「タッチ平面（Virtual touch plane）」を設定し、指がその面を通過したことを検知することでクリック（タッチ）動作として認識する仕組みを検証しました。カメラの垂直視野角を活かし、画面全体をカバーするエリア（Zone A/B）を設計しています。</p>
-      <img class="case-image" src="/images/untouch-principle.png" alt="非接触操作の仕組み（参考構成）">
-      <p class="case-caption">※参考構成図：仮想タッチ平面による検知イメージ</p>
+      <h2>構成・使用機器</h2>
+      <p>Intel RealSense D435iは、深度（距離）情報を取得できるカメラです。指先の位置や動きを空間的に認識できるため、非接触でのタッチ操作の代替手段として検証しました。</p>
+      <p>カメラを画面上部に設置し、垂直画角60度を確保する角度・距離を調整しながら検証環境を構築しました。</p>
+      <div class="device-pair">
+        <div>
+          <img class="case-image small" src="images/untouch-device.webp" width="570" height="365" loading="lazy" alt="Intel RealSense D435i 深度カメラ">
+          <p class="case-caption">使用した深度カメラ</p>
+        </div>
+        <div>
+          <img class="case-image small" src="images/untouch-setup.webp" width="691" height="548" loading="lazy" alt="検証環境の構築（参考構成）">
+          <p class="case-caption">※参考構成：カメラ設置・画角調整の様子</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>03｜検証環境の構築</h2>
-    <p>カメラを画面上部に設置し、垂直画角60度を確保する角度・距離を調整しながら検証環境を構築しました。</p>
-    <img class="case-image" src="/images/untouch-setup.png" alt="検証環境の構築（参考構成）">
-    <p class="case-caption">※参考構成：カメラ設置・画角調整の様子</p>
+  <section id="video" class="section container">
+    <h2>実証動画</h2>
+    <p>実際に非接触操作を行った検証の様子を動画で紹介しています。</p>
+    <iframe class="case-video" src="https://www.youtube.com/embed/ruz7lpLbWvo" title="非接触操作 検証動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>04｜実証動画</h2>
-      <p>実際に非接触操作を行った検証の様子を動画で紹介しています。</p>
-      <iframe style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;margin-top:22px;box-shadow:0 8px 30px rgba(11,26,43,.06);" src="https://www.youtube.com/embed/FqePh7wfoqQ" title="非接触操作 技術検証" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section class="section container">
-    <h2>05｜技術検証で確認したポイント</h2>
-    <div class="case-grid">
-      <article class="case-card">
-        <h3>非接触でのクリック検知</h3>
-        <p>仮想タッチ平面を通過する指の動きを検知できることを確認しました。</p>
-      </article>
-      <article class="case-card">
-        <h3>既存モニターへの後付け</h3>
-        <p>特別なタッチパネルディスプレイを使わずに導入できる構成を検証しました。</p>
-      </article>
-      <article class="case-card">
-        <h3>柔軟な操作エリア設定</h3>
-        <p>カメラの画角・距離に応じて、操作範囲を調整できることを確認しました。</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section alt">
-    <div class="container">
-      <h2>06｜活用イメージ</h2>
+      <h2>確認できたポイント</h2>
       <div class="case-grid">
+        <article class="case-card">
+          <h3>非接触でのクリック検知</h3>
+          <p>仮想タッチ平面を通過する指の動きを検知できることを確認しました。</p>
+        </article>
+        <article class="case-card">
+          <h3>既存モニターへの後付け</h3>
+          <p>特別なタッチパネルディスプレイを使わずに導入できる構成を検証しました。</p>
+        </article>
+        <article class="case-card">
+          <h3>柔軟な操作エリア設定</h3>
+          <p>カメラの画角・距離に応じて、操作範囲を調整できることを確認しました。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>活用イメージ</h2>
+      <p>触れずに操作したい場面への活用を想定しています。</p>
+      <div class="case-grid four">
         <article class="case-card">
           <h3>衛生面が求められる環境</h3>
           <p>医療・食品関連施設など、非接触での操作が求められる場面への活用を想定しています。</p>
@@ -145,10 +115,13 @@
     </div>
   </section>
 
-  <section class="section container">
-    <h2>07｜IoT技術検証の広がり</h2>
-    <p>非接触操作という経験を基盤に、深度カメラを用いたジェスチャー認識や人物検知など、より高度な空間センシング技術の検証を進めています。</p>
-    <p style="margin-top:18px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+  <section class="section alt works">
+    <div class="container">
+      <h2>他の活用事例</h2>
+      <p class="section-lead">非接触操作という経験を基盤に、深度カメラを用いたジェスチャー認識や人物検知など、より高度な空間センシング技術の検証を進めています。</p>
+      <div class="works-grid" id="otherWorks"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+    </div>
   </section>
 </main>
 
@@ -159,9 +132,6 @@
   </div>
 </footer>
 <script>
-const btn=document.getElementById('menuBtn');
-const nav=document.getElementById('nav');
-if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>

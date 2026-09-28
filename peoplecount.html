@@ -3,52 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AIカメラ × 来店人数分析 | ara nova</title>
-  <meta name="description" content="AIカメラによる入退店人数のカウントとPOS販売データを組み合わせた来店人数分析の導入事例。">
+  <title>人数測定 | ara nova</title>
+  <meta name="description" content="店舗の出入口にAIカメラを導入し、来店人数とPOS販売データを組み合わせて購買率を分析した活用事例。">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
-    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
-    .case-image.small{max-height:300px}
-    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
-    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
-    .case-card h3{color:var(--accent-2);margin-bottom:8px}
-    @media(max-width:920px){.case-grid{grid-template-columns:1fr}}
-    .nav .has-dropdown{position:relative;display:flex;align-items:center}
-    .nav .dropdown-menu{
-      display:none;position:absolute;top:100%;left:0;
-      background:#fff;border:1px solid #e6eef6;border-radius:8px;
-      box-shadow:0 6px 20px rgba(11,26,43,.08);
-      min-width:200px;padding:6px 0;z-index:30;
-    }
-    .nav .has-dropdown:hover .dropdown-menu{display:block}
-    .nav .dropdown-menu a{
-      display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
-    }
-    .nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
-  </style>
+  <script src="works.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a>
-      <div class="has-dropdown">
-        <a href="#">過去実績</a>
-        <div class="dropdown-menu">
-          <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
-          <a href="https://aranova.jp/twelite-door-iot.html">開閉検知IoT</a>
-          <a href="https://aranova.jp/twelite-pal-iot.html">車内環境モニタリング</a>
-          <a href="https://aranova.jp/twelite-location-iot.html">屋内位置推定</a>
-          <a href="https://aranova.jp/peoplecount.html">来店人数分析</a>
-        </div>
-      </div>
-      <a href="index.html#contact">お問い合わせ</a>
-    </nav>
+    <nav class="nav" id="nav"></nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -57,22 +22,23 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1>AIカメラ × 来店人数分析</h1>
-        <p>AIカメラによる入退店人数のカウントとPOS販売データを組み合わせ、来店数と購買数の関係を分析する導入事例です。</p>
-        <p class="case-hero-note">導入実績｜小売店舗での運用データを基に分析</p>
+        <span class="tag camera">AIカメラ</span>
+        <h1>人数測定</h1>
+        <p>店舗の入口・出口にAIカメラを導入し、入退店人数のカウントとPOS販売データを組み合わせて、来店数と購買数の関係を分析しました。</p>
+        <p class="case-hero-note">使用機器：AIカメラ　｜　種別：<a href="index.html#works">活用事例</a>（小売店舗での導入実績）</p>
       </div>
       <div class="hero-image" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="section container">
-    <h2>01｜AIカメラの設置</h2>
+    <h2>概要</h2>
     <div class="two-col">
       <div>
         <p>店舗の入口・出口にAIカメラを設置し、通過する人物を検知して入店・退店数をリアルタイムにカウントするシステムを導入しました。</p>
       </div>
       <div>
-        <img class="case-image small" src="/images/ai-camera-device.png" alt="設置したAIカメラ">
+        <img class="case-image small" src="images/ai-camera-device.png" width="289" height="93" loading="lazy" alt="設置したAIカメラ">
         <p class="case-caption">入退店カウントに使用したAIカメラ</p>
       </div>
     </div>
@@ -80,37 +46,33 @@
 
   <section class="section alt">
     <div class="container">
-      <h2>02｜システム構成</h2>
+      <h2>構成・使用機器</h2>
       <p>入口・出口それぞれにカメラを設置し、店舗内のPCで集計、バックエンドサーバーでデータを管理・可視化する構成を導入しました。</p>
-      <img class="case-image" src="/images/ai-camera-system.png" alt="AIカメラによる来店人数分析のシステム構成図">
+      <img class="case-image" src="images/ai-camera-system.png" width="700" height="310" loading="lazy" alt="AIカメラによる来店人数分析のシステム構成図">
       <p class="case-caption">入口・出口カメラ、店舗PC、バックエンドサーバーによる構成</p>
     </div>
   </section>
 
   <section class="section container">
-    <h2>03｜来店人数の可視化</h2>
+    <h2>実際の画面・結果</h2>
     <p>時間帯ごとの入店・退店人数を集計し、来店のピーク時間帯や傾向を可視化しました。</p>
-    <img class="case-image" src="/images/ai-camera-chart.png" alt="時間帯別の入店・退店人数グラフ">
+    <img class="case-image" src="images/ai-camera-chart.png" width="700" height="260" loading="lazy" alt="時間帯別の入店・退店人数グラフ">
     <p class="case-caption">時間帯別の入店・退店人数（実運用データ例）</p>
+    <p style="margin-top:28px;">実際の店舗出入口での検知画面です。累計の入店・退店人数がリアルタイムに表示され、通過する人物を検知・カウントしている様子を確認できます。</p>
+    <img class="case-image" src="images/ai-camera-detect.webp" width="997" height="755" loading="lazy" alt="実際のAIカメラ検知画面（店舗名は非表示処理済み）">
+    <p class="case-caption">実際の検知画面（店舗名など非公開情報は加工済み）</p>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>04｜実際の検知画面</h2>
-      <p>実際の店舗出入口での検知画面です。累計の入店・退店人数がリアルタイムに表示され、通過する人物を検知・カウントしている様子を確認できます。</p>
-      <img class="case-image" src="/images/ai-camera-detect.png" alt="実際のAIカメラ検知画面（店舗名は非表示処理済み）">
-      <p class="case-caption">実際の検知画面（店舗名など非公開情報は加工済み）</p>
+      <h2>POSデータとの比較分析</h2>
+      <p>来店人数データとPOSの販売データを組み合わせることで、「来店数に対してどれだけ購買につながったか」という購買率を分析できます。特にセール・催事期間中の実来店数と購買人数の関係を把握する用途で活用しています。</p>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>05｜POSデータとの比較分析</h2>
-    <p>来店人数データとPOSの販売データを組み合わせることで、「来店数に対してどれだけ購買につながったか」という購買率を分析できます。特にセール・催事期間中の実来店数と購買人数の関係を把握する用途で活用しています。</p>
-  </section>
-
-  <section class="section alt">
+  <section class="section">
     <div class="container">
-      <h2>06｜導入で確認できた効果</h2>
+      <h2>確認できたポイント</h2>
       <div class="case-grid">
         <article class="case-card">
           <h3>来店人数の定量把握</h3>
@@ -128,9 +90,11 @@
     </div>
   </section>
 
-  <section class="section container">
-    <h2>07｜活用イメージ</h2>
-    <div class="case-grid">
+  <section class="section alt">
+    <div class="container">
+      <h2>活用イメージ</h2>
+    <p>来店・購買の傾向を数値で確認したい場面への活用を想定しています。</p>
+    <div class="case-grid four">
       <article class="case-card">
         <h3>小売店舗の販促効果測定</h3>
         <p>セール・催事の来店効果を数値で検証する用途に活用できます。</p>
@@ -148,13 +112,15 @@
         <p>来店・購買傾向の店舗間比較に活用できます。</p>
       </article>
     </div>
+    </div>
   </section>
 
-  <section class="section alt">
+  <section class="section works">
     <div class="container">
-      <h2>08｜今後の展開</h2>
-      <p>来店人数のカウント・可視化という実績を基盤に、POSや在庫データと組み合わせた、より高度な店舗分析システムの展開を進めています。</p>
-      <p style="margin-top:18px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+      <h2>他の活用事例</h2>
+      <p class="section-lead">来店人数のカウント・可視化という実績を基盤に、POSや在庫データと組み合わせた、より高度な店舗分析システムの展開を進めています。</p>
+      <div class="works-grid" id="otherWorks"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
     </div>
   </section>
 </main>
@@ -166,9 +132,6 @@
   </div>
 </footer>
 <script>
-const btn=document.getElementById('menuBtn');
-const nav=document.getElementById('nav');
-if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>

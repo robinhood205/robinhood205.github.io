@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>オフラインIoT | ara nova</title>
+  <meta name="description" content="Raspberry Pi ZeroとTWELITEを活用した、インターネット接続に依存しないオフラインIoTの技術検証。">
+  <link rel="stylesheet" href="style.css">
+  <script src="works.js" defer></script>
+  <script src="tech.js" defer></script>
+  <script src="nav.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
+    <nav class="nav" id="nav"></nav>
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <span class="tag">技術検証</span>
+        <h1>オフラインIoT</h1>
+        <p>インターネット接続を前提としないIoTの技術検証。センサーからエッジ、スマートフォン、クラウドまで、現場で使いやすい小規模・低コストなIoT構成を検証しています。</p>
+        <p class="case-hero-note">技術：Raspberry Pi　｜　種別：<a href="index.html#projects">技術検証</a>（検証中）</p>
+        <a class="btn" href="#video">デモ動画を見る</a>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>現場の課題</h2>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>低い利益率</h3>
+          <p>高価で複雑なIoTではなく、現場が導入しやすい低コストな仕組みが求められます。</p>
+        </article>
+        <article class="case-card">
+          <h3>人手不足</h3>
+          <p>温度確認や記録など、継続的に発生する現場作業の負担を減らす必要があります。</p>
+        </article>
+        <article class="case-card">
+          <h3>設備の老朽化・ITスキル不足</h3>
+          <p>既存設備を大きく改造せず、複雑なネットワーク構築を前提としない、現場で扱いやすい仕組みが必要です。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>解決アプローチ</h2>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>インターネット接続に依存しない</h3>
+          <p>Raspberry Pi ZeroとTWELITEセンサーで自動データ収集。データをエッジ側に保存し、必要なときだけスマートフォン経由でクラウドへ同期します。</p>
+        </article>
+        <article class="case-card">
+          <h3>既存設備への後付け</h3>
+          <p>冷蔵庫・冷凍庫などの既存設備を大きく改造せず、センサーを設置して利用できる構成を目指します。</p>
+        </article>
+        <article class="case-card">
+          <h3>「サイレント昇温」の察知と記録の自動化</h3>
+          <p>継続的な温度モニタリングで、設備劣化などによる緩やかな温度上昇を把握し、異常検知につなげます。蓄積したデータを活用し、衛生管理に必要な記録・帳票作成の自動化を検証します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2>システム構成</h2>
+      <p>センサーからRaspberry Pi Zeroへデータを集約し、エッジ側で保存。Raspberry Pi ZeroとスマートフォンはWi-Fi AP / BLEで接続し、必要な場合のみスマートフォンから4G/LTE経由でクラウドへ同期します。</p>
+      <div class="diagram">
+        <img src="images/raspberry-pi-offline-iot-architecture.webp" width="1836" height="583" loading="lazy" alt="Raspberry Pi Zeroを中心としたOffline IoTシステム構成図">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>実装デモ</h2>
+      <p>Raspberry Pi Zeroをエッジデバイスとして使用し、TWELITEセンサーから温度データを収集・保存します。</p>
+      <img class="case-image" src="images/raspberry-pi-offline-iot-demo.webp" width="1045" height="486" loading="lazy" alt="冷凍庫内のTWELITEセンサーとRaspberry Pi Zero">
+      <p class="case-caption">冷凍庫内のセンサーとRaspberry Pi Zero</p>
+      <p style="margin-top:28px;">収集したデータをWeb画面で可視化し、センサー数、正常・異常・オフライン状態、現在温度、設定範囲、温度推移、最終受信時刻などを確認できます。</p>
+      <div class="diagram">
+        <img src="images/raspberry-pi-offline-iot-dashboard.webp" width="1477" height="625" loading="lazy" alt="温湿度監視システムのダッシュボード画面">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+    </div>
+  </section>
+
+  <section id="video" class="section">
+    <div class="container">
+      <h2>デモ動画</h2>
+      <p>実装の様子を、ハードウェア編・ソフトウェア編の2本の動画で紹介しています。</p>
+      <div class="device-pair">
+        <div>
+          <p><strong>ハードウェア編</strong></p>
+          <iframe class="case-video" src="https://www.youtube.com/embed/4IrmU0uDYZo" title="オフラインIoT ハードウェア編" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div>
+          <p><strong>ソフトウェア編</strong></p>
+          <iframe class="case-video" src="https://www.youtube.com/embed/WZVpJ05Vppg" title="オフラインIoT ソフトウェア編" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>使用技術</h2>
+      <dl class="stack-list">
+        <div><dt>開発手法</dt><dd>AI-Driven Development / Spec-Driven Development</dd></div>
+        <div><dt>要件定義・設計</dt><dd>GEAR.indigoによる要件定義書・設計書の生成</dd></div>
+        <div><dt>Backend</dt><dd>Flask / SQLite</dd></div>
+        <div><dt>Frontend</dt><dd>Jinja2 / JavaScript / Chart.js</dd></div>
+        <div><dt>通信・Edge</dt><dd>Raspberry Pi Zero / TWELITE / USB Stick / ARIA</dd></div>
+        <div><dt>Cloud / AI</dt><dd>Cloudflare Workers / OpenCode / Claude</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>今後の検証</h2>
+      <ul class="info-list">
+        <li>異常検知・アラート機能</li>
+        <li>衛生管理に必要な帳票生成</li>
+        <li>長期稼働・安定性</li>
+        <li>現場での運用性</li>
+        <li>クラウドへのデータ同期</li>
+      </ul>
+      <div class="evidence"><strong>現在は技術検証段階です。</strong><br>実環境での運用を想定しながら、低コスト・容易な導入・継続的なデータ収集を検証しています。</div>
+    </div>
+  </section>
+
+  <section class="section tech">
+    <div class="container">
+      <h2>他の技術検証</h2>
+      <div class="services-grid" id="otherTech"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html#projects">技術検証一覧へ戻る</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

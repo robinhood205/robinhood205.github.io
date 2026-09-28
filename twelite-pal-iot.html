@@ -3,50 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>TWELITE CUE × 車内環境モニタリング | ara nova</title>
-  <meta name="description" content="TWELITE CUEを車内に設置し、温度・湿度・照度の変化を無線で取得・可視化したIoT技術検証事例。">
+  <title>環境測定 | ara nova</title>
+  <meta name="description" content="IoTセンサーを夏場の車内に設置し、温度・湿度・照度の変化を無線で取得してGrafanaで可視化した活用事例。">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .case-hero-note{font-size:.92rem;color:var(--muted);margin-top:10px}
-    .case-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;background:#fff;border:1px solid #e6eef6;border-radius:8px;margin-top:18px}
-    .case-image.small{max-height:300px}
-    .case-caption{font-size:.86rem;color:var(--muted);margin-top:8px;text-align:center}
-    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
-    .case-card{background:#fff;padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 20px rgba(11,26,43,.04)}
-    .case-card h3{color:var(--accent-2);margin-bottom:8px}
-    @media(max-width:920px){.case-grid{grid-template-columns:1fr}}
-    .nav .has-dropdown{position:relative;display:flex;align-items:center}
-    .nav .dropdown-menu{
-      display:none;position:absolute;top:100%;left:0;
-      background:#fff;border:1px solid #e6eef6;border-radius:8px;
-      box-shadow:0 6px 20px rgba(11,26,43,.08);
-      min-width:200px;padding:6px 0;z-index:30;
-    }
-    .nav .has-dropdown:hover .dropdown-menu{display:block}
-    .nav .dropdown-menu a{
-      display:block;padding:10px 16px;color:var(--muted);font-weight:600;white-space:nowrap;
-    }
-    .nav .dropdown-menu a:hover{color:var(--accent-2);background:var(--surface)}
-  </style>
+  <script src="works.js" defer></script>
+  <script src="nav.js" defer></script>
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
-    <nav class="nav" id="nav">
-      <a href="index.html">ホーム</a>
-      <a href="index.html#about">会社情報</a>
-      <a href="index.html#projects">技術検証</a>
-      <div class="has-dropdown">
-        <a href="#">過去実績</a>
-        <div class="dropdown-menu">
-          <a href="https://aranova.jp/twelite-cue-iot.html">Tweliet</a>
-          <a href="https://aranova.jp/twelite-door-iot.html">開閉検知IoT</a>
-          <a href="https://aranova.jp/twelite-pal-iot.html">車内環境モニタリング</a>
-        </div>
-      </div>
-      <a href="index.html#contact">お問い合わせ</a>
-    </nav>
+    <nav class="nav" id="nav"></nav>
     <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -55,25 +22,27 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1>TWELITE CUE × 車内環境モニタリング</h1>
-        <p>TWELITE CUEを車内に設置し、温度・湿度・照度の変化を無線で取得・可視化する技術を検証しました。</p>
-        <p class="case-hero-note">2021年8月｜実機を用いたIoT技術検証</p>
+        <span class="tag">IoTセンサー</span>
+        <h1>環境測定</h1>
+        <p>小型の無線センサーを夏場の車内に設置し、温度・湿度・照度の変化を無線で取得して、Grafanaでリアルタイムに可視化しました。</p>
+        <p class="case-hero-note">使用機器：TWELITE CUE　｜　種別：<a href="index.html#works">活用事例</a></p>
+        <a class="btn" href="#video">実証動画を見る</a>
       </div>
       <div class="hero-image" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="section container">
-    <h2>01｜車内環境の技術検証</h2>
+    <h2>概要</h2>
     <div class="two-col">
       <div>
-        <p>夏場の車内は温度が急激に上昇するため、ダッシュボード付近にTWELITE CUEを設置し、車内環境（温度・湿度・照度）を継続的に取得できるかを検証しました。</p>
+        <p>夏場の車内は温度が急激に上昇するため、ダッシュボード付近にセンサーを設置し、車内環境（温度・湿度・照度）を継続的に取得できるかを検証しました。</p>
         <p>センサー単体は非常に小型で、目立たない場所への設置にも適しています。</p>
       </div>
       <div>
-        <img class="case-image small" src="/images/twelite-pal-01.png" alt="車内ダッシュボードに設置したTWELITE CUE">
-        <p class="case-caption">車内ダッシュボードに設置したTWELITE CUE</p>
-        <img class="case-image small" src="/images/twelite-size-ref.png" alt="100円硬貨とのサイズ比較">
+        <img class="case-image small" src="images/twelite-pal-01.webp" width="788" height="547" loading="lazy" alt="車内ダッシュボードに設置したセンサー">
+        <p class="case-caption">車内ダッシュボードに設置したセンサー</p>
+        <img class="case-image small" src="images/twelite-size-ref.webp" width="700" height="294" loading="lazy" alt="100円硬貨とのサイズ比較">
         <p class="case-caption">100円硬貨とのサイズ比較</p>
       </div>
     </div>
@@ -81,55 +50,65 @@
 
   <section class="section alt">
     <div class="container">
-      <h2>02｜温度・湿度・照度の可視化</h2>
+      <h2>実際の画面・結果</h2>
       <p>取得したデータをGrafanaでリアルタイムに可視化しました。実測では温度31.87℃、湿度65.43%H、照度135illuminanceといった値を記録し、日中の温度上昇・夜間の低下といった傾向も確認できました。</p>
-      <img class="case-image" src="/images/twelite-dashboard-wide.png" alt="Grafanaによる車内環境データの可視化画面">
+      <img class="case-image" src="images/twelite-dashboard-wide.png" width="1280" height="581" loading="lazy" alt="Grafanaによる車内環境データの可視化画面">
       <p class="case-caption">Grafanaで可視化した温度・湿度・照度データ</p>
     </div>
   </section>
 
-  <section class="section container">
-    <h2>03｜技術検証で確認したポイント</h2>
-    <div class="case-grid">
-      <article class="case-card">
-        <h3>温度の急上昇検知</h3>
-        <p>夏場の車内温度上昇を数値で継続的に把握できることを確認しました。</p>
-      </article>
-      <article class="case-card">
-        <h3>複合センシング</h3>
-        <p>温度・湿度・照度を1台のセンサーで同時に取得できる点を確認しました。</p>
-      </article>
-      <article class="case-card">
-        <h3>遠隔からの状態把握</h3>
-        <p>現地に行かなくても、ダッシュボード上で環境状態を確認できる構成を検証しました。</p>
-      </article>
-    </div>
+  <section id="video" class="section container">
+    <h2>実証動画</h2>
+    <p>実際の検証の様子を動画でも紹介しています。</p>
+    <iframe class="case-video" src="https://www.youtube.com/embed/0VV5XJwvZ98" title="環境測定 検証動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </section>
 
   <section class="section alt">
     <div class="container">
-      <h2>04｜活用イメージ</h2>
+      <h2>確認できたポイント</h2>
       <div class="case-grid">
         <article class="case-card">
-          <h3>車内熱中症対策</h3>
-          <p>子供やペットの車内放置による温度上昇を検知し、事故防止に役立てる活用を想定しています。</p>
+          <h3>温度の急上昇検知</h3>
+          <p>夏場の車内温度上昇を数値で継続的に把握できることを確認しました。</p>
         </article>
         <article class="case-card">
-          <h3>倉庫・物置の環境監視</h3>
-          <p>温湿度管理が必要な保管環境において、状態を継続的に把握する用途を想定しています。</p>
+          <h3>複合センシング</h3>
+          <p>温度・湿度・照度を1台のセンサーで同時に取得できる点を確認しました。</p>
         </article>
         <article class="case-card">
-          <h3>ハウス栽培・農業用途</h3>
-          <p>ビニールハウス内の温湿度・照度管理など、栽培環境のモニタリングへの応用を検討できます。</p>
+          <h3>遠隔からの状態把握</h3>
+          <p>現地に行かなくても、Grafanaの画面上で環境状態を確認できる構成を検証しました。</p>
         </article>
       </div>
     </div>
   </section>
 
   <section class="section container">
-    <h2>05｜IoT技術検証の広がり</h2>
-    <p>温度・湿度・照度といった環境データの取得・可視化という経験を基盤に、開閉検知や振動検知などと組み合わせた、より広範なIoT環境モニタリングの検証を進めています。</p>
-    <p style="margin-top:18px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+    <h2>活用イメージ</h2>
+    <p>車内だけでなく、保管環境や栽培環境など、温湿度を知りたい場所への展開を想定しています。</p>
+    <div class="case-grid">
+      <article class="case-card">
+        <h3>車内熱中症対策</h3>
+        <p>子供やペットの車内放置による温度上昇を検知し、事故防止に役立てる活用を想定しています。</p>
+      </article>
+      <article class="case-card">
+        <h3>倉庫・物置の環境監視</h3>
+        <p>温湿度管理が必要な保管環境において、状態を継続的に把握する用途を想定しています。</p>
+      </article>
+      <article class="case-card">
+        <h3>ハウス栽培・農業用途</h3>
+        <p>ビニールハウス内の温湿度・照度管理など、栽培環境のモニタリングへの応用を検討できます。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt works">
+    <div class="container">
+      <h2>他の活用事例</h2>
+      <p class="section-lead">温度・湿度・照度といった環境データの取得・可視化という経験を基盤に、開閉検知や振動検知などと組み合わせた、より広範なIoT環境モニタリングの検証を進めています。</p>
+      <div class="works-grid" id="otherWorks"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html">ホームページへ戻る</a></p>
+    </div>
   </section>
 </main>
 
@@ -140,9 +119,6 @@
   </div>
 </footer>
 <script>
-const btn=document.getElementById('menuBtn');
-const nav=document.getElementById('nav');
-if(btn)btn.addEventListener('click',()=>{nav.classList.toggle('open');});
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
