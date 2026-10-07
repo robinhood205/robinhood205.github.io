@@ -11,7 +11,7 @@ window.ARANOVA_TECH = [
   {
     href: 'raspberry-pi-offline-iot.html', icon: 'chip',
     title: 'オフラインIoT', sub: 'Raspberry Pi',
-    desc: 'インターネットに依存せず、現場内だけで完結するIoTシステムをRaspberry Piで検証しています。'
+    desc: 'インターネットに依存せず、エッジ側でのデータ処理により現場内だけで完結するIoTシステムをRaspberry Piで検証しています。'
   },
   {
     href: 'ai-ocr-gcp.html', icon: 'doc',
