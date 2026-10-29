@@ -62,6 +62,17 @@
     }
     return out;
   }
+  // 技術検証：同じテーマ（group）を優先して n 件
+  function othersTech(list, n) {
+    var file = location.pathname.split('/').pop() || 'index.html';
+    var me = null;
+    list.forEach(function (w) { if (w.href === file) me = w; });
+    var rest = others(list, list.length);
+    if (!me || !me.group) return rest.slice(0, n);
+    var same = rest.filter(function (w) { return w.group === me.group; });
+    var diff = rest.filter(function (w) { return w.group !== me.group; });
+    return same.concat(diff).slice(0, n);
+  }
   function iconSvg(name) {
     var icons = window.ARANOVA_ICONS || {};
     return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (icons[name] || '') + '</svg>';
@@ -84,6 +95,26 @@
       '<p>' + esc(w.desc) + '</p><span class="card-more">詳細を見る</span></article>';
   }
 
+  // テーマ別の技術検証カード（2件・4件のグループは2列、それ以外は3列）
+  function techGroupsHtml(list) {
+    var groups = window.ARANOVA_TECH_GROUPS || {}, html = '', used = [];
+    function block(title, items) {
+      if (!items.length) return '';
+      var cols = (items.length === 2 || items.length === 4) ? ' cols-2' : '';
+      return '<div class="tech-group">' +
+        (title ? '<h3 class="group-title">' + esc(title) + '</h3>' : '') +
+        '<div class="services-grid' + cols + '">' + items.map(techCard).join('') + '</div></div>';
+    }
+    Object.keys(groups).forEach(function (key) {
+      var items = list.filter(function (w) { return w.group === key; });
+      items.forEach(function (w) { used.push(w); });
+      html += block(groups[key].title, items);
+    });
+    var rest = list.filter(function (w) { return used.indexOf(w) < 0; });   // group 未設定は見出しなしで末尾
+    html += block('', rest);
+    return html;
+  }
+
   function build() {
     var works = window.ARANOVA_WORKS || [], tech = window.ARANOVA_TECH || [];
     nav.innerHTML =
@@ -96,9 +127,12 @@
     // 案例ページ下部：<div class="works-grid" id="otherWorks"></div>
     var ow = document.getElementById('otherWorks');
     if (ow && works.length) ow.innerHTML = others(works, 3).map(workCard).join('');
+    // 首頁：<div id="techGroups"></div> にテーマ別（group）で技術検証カードを表示
+    var tg = document.getElementById('techGroups');
+    if (tg && tech.length) tg.innerHTML = techGroupsHtml(tech);
     // 技術検証ページ下部：<div class="services-grid" id="otherTech"></div>
     var ot = document.getElementById('otherTech');
-    if (ot && tech.length) ot.innerHTML = others(tech, 2).map(techCard).join('');
+    if (ot && tech.length) ot.innerHTML = othersTech(tech, 2).map(techCard).join('');
   }
 
   // tech.js が未読み込みのページは自動で読み込んでから構築

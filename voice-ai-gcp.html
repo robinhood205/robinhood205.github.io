@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>音声AIエージェント | ara nova</title>
+  <meta name="description" content="冷蔵・冷凍設備の温度管理を、話しかけるだけで確認できる音声AIエージェント（Gemini × BigQuery）の技術検証。">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 実装デモの画面2枚：同じ大きさのパネルに収める（このページ専用） */
+    .shots{display:grid;grid-template-columns:1fr;gap:24px;max-width:420px;margin:20px auto 0}
+    .shots .panel{position:relative;aspect-ratio:3/4;background:#eef3f6;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    .shots .panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+    @media (min-width:600px){.shots{grid-template-columns:1fr 1fr;max-width:900px}}
+  </style>
+  <script src="works.js" defer></script>
+  <script src="tech.js" defer></script>
+  <script src="nav.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="ara nova">ara <span style="color:#0066cc;">nova</span></a>
+    <nav class="nav" id="nav"></nav>
+    <button id="menuBtn" class="menu-btn" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="hero-text">
+        <span class="tag">技術検証</span>
+        <h1>音声AIエージェント</h1>
+        <p>ColdWatchは、冷蔵・冷凍設備の温度管理を、話しかけるだけで確認できる音声AIエージェントです。マスクや手袋のままでも、手持ちのスマートフォンで「今の状態」「今日の状況」「改善提案」を聞くことができます。</p>
+        <p class="case-hero-note">技術：Gemini × BigQuery　｜　種別：<a href="index.html#projects">技術検証</a>（検証中）</p>
+        <a class="btn" href="#video">デモ動画を見る</a>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>現場の課題</h2>
+      <p>HACCP対象事業者へのヒアリングから、特定小規模の食品工場や小規模な集団給食施設には共通する課題があると分かりました。利益が薄く、人手とIT人材が不足し、設備も古いことです。</p>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>操作できない</h3>
+          <p>製造中はマスク・手袋・帽子の着用が必須で、スマートフォンやパソコンの操作が難しく、温度確認が後回しになります。</p>
+        </article>
+        <article class="case-card">
+          <h3>確認・通知の遅れ</h3>
+          <p>生産エリアと事務所が離れており、確認や通知が遅れます。</p>
+        </article>
+        <article class="case-card">
+          <h3>小規模事業者の負担</h3>
+          <p>高額な専用システムや外国人スタッフ向けの専用画面は負担が大きく、設備老化の予兆も記録があっても活用されていません。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>解決アプローチ</h2>
+      <p>話しかけるだけで動く音声エージェントです。安価なセンサーを使い、操作は手持ちのスマートフォンで足ります。ログインや画面遷移はなく、大きなマイクボタンを押して話すだけです。</p>
+      <div class="case-grid">
+        <article class="case-card">
+          <h3>今の状態</h3>
+          <p>全機器の温度・湿度・測定時刻を答え、普段（直近30日の平均）との差も伝えます。異常があれば、自動で直近の推移も調べて原因候補まで答えます。</p>
+        </article>
+        <article class="case-card">
+          <h3>今日の状況</h3>
+          <p>基準超過（連続30分以上）と欠測を集計し、適合・不適合を先に答えます。基準超過は普段と比べて多いか少ないかも添えます。HACCP記録の確認に役立ちます。</p>
+        </article>
+        <article class="case-card">
+          <h3>改善提案</h3>
+          <p>直近7日を過去30日の基準と比べ、温度のばらつきや電圧の変化から、設備の老化の早期の兆候を数値付きで指摘します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="architecture" class="section">
+    <div class="container">
+      <h2>システム構成</h2>
+      <p>現場のスマートフォン（Chrome）から話しかけると、Cloud Run上のFastAPIとAgent Development Kit（ADK）で動くエージェントが受け取ります。エージェントはGeminiで必要なツールを選び、BigQueryに蓄積した1ヶ月分の実データを固定SQLで取得して、結果をユーザーの言語で答えます。センサーは15分間隔でBigQueryにデータを蓄積します。</p>
+      <div class="diagram">
+        <img src="images/voice-ai-architecture.webp" width="1700" height="900" loading="lazy" style="min-width:1000px;" alt="スマートフォン、Cloud Run、Gemini、BigQuery、センサーの関係を示すアーキテクチャ図">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+
+      <p style="margin-top:32px;"><strong>エージェントの処理フロー</strong></p>
+      <div class="diagram">
+        <img src="images/voice-ai-flow.webp" width="1700" height="900" loading="lazy" style="min-width:1000px;" alt="音声入力から画面表示・音声読み上げまでの8ステップの処理フロー">
+      </div>
+      <span class="diagram-hint">← 横にスクロールできます →</span>
+
+      <p style="margin-top:32px;"><strong>設計上の工夫</strong></p>
+      <div class="case-grid four">
+        <article class="case-card">
+          <h3>役割分担</h3>
+          <p>基準超過・欠測・普段との差の判定はコードで行い、AIは文章化に専念します。数値の誤りを防ぎます。</p>
+        </article>
+        <article class="case-card">
+          <h3>安全設計</h3>
+          <p>AIに自由なSQLを書かせず、固定の3ツールのみ使います。BigQueryは読み取り専用で、無関係な依頼は断ります。</p>
+        </article>
+        <article class="case-card">
+          <h3>自律的な追加調査</h3>
+          <p>異常を検知すると、人が指示しなくてもAIが直近の推移を取得し、原因候補まで答えます。実行ステップは画面に表示されます。</p>
+        </article>
+        <article class="case-card">
+          <h3>現場向けUI</h3>
+          <p>ログイン不要で、大きなマイクボタンだけで操作でき、日本語・英語・中国語ほか5言語に対応します。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>実装デモ</h2>
+      <p>自宅の冷蔵庫・冷凍庫で検証しました。温湿度センサーとWi-Fiゲートウェイで実データをBigQueryに蓄積し、判断の基準には直近30日を使用しています。回答の上には、AIが実行したステップ（ツール名）も表示されます。</p>
+      <div class="shots">
+        <div>
+          <div class="panel"><img src="images/voice-ai-screen-ja.webp" width="670" height="818" loading="lazy" alt="日本語での質問と回答の画面"></div>
+          <p class="case-caption">日本語での質問と回答（今の状態・今日の状況）</p>
+        </div>
+        <div>
+          <div class="panel"><img src="images/voice-ai-screen-en.webp" width="720" height="1305" loading="lazy" alt="英語での質問と回答の画面"></div>
+          <p class="case-caption">英語でも同じように回答（多言語対応）</p>
+        </div>
+      </div>
+
+      <p style="margin-top:32px;"><strong>蓄積したデータ（BigQuery）</strong></p>
+      <ul class="info-list">
+        <li>蓄積間隔・期間：15分間隔、約1ヶ月分</li>
+        <li>蓄積件数：冷蔵庫1　2,682件／冷凍庫1　2,476件</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="video" class="section">
+    <div class="container">
+      <h2>デモ動画</h2>
+      <p>ColdWatchのデモを動画で紹介しています。</p>
+      <iframe class="case-video" src="https://www.youtube.com/embed/2z1Xhjruq74" title="音声AIエージェント デモ動画" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <h2>使用技術</h2>
+      <dl class="stack-list">
+        <div><dt>Cloud</dt><dd>Google Cloud（Cloud Run）</dd></div>
+        <div><dt>AI</dt><dd>Gemini（Vertex AI） / Agent Development Kit（ADK）</dd></div>
+        <div><dt>Data</dt><dd>BigQuery</dd></div>
+        <div><dt>Backend</dt><dd>FastAPI</dd></div>
+        <div><dt>Frontend</dt><dd>Chrome（PWA） / Web Speech API</dd></div>
+        <div><dt>Sensor</dt><dd>温湿度センサー（ARIA） / Wi-Fiゲートウェイ（SPOT）</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>今後の検証</h2>
+      <ul class="info-list">
+        <li>社内ローカルのGemmaへの移行（データを社外に出さない運用）</li>
+      </ul>
+      <div class="evidence"><strong>現在は技術検証段階です。</strong><br>モデルは環境変数で切り替えられる設計のため、運用環境に合わせた構成への移行を検討しています。</div>
+    </div>
+  </section>
+
+  <section class="section tech">
+    <div class="container">
+      <h2>他の技術検証</h2>
+      <p class="section-lead">冷蔵・冷凍設備の温度管理を、複数の方式で検証しています。このページは、蓄積したデータに、話しかけて確認する方式です。</p>
+      <div class="services-grid" id="otherTech"></div>
+      <p style="margin-top:22px;"><a class="btn" href="index.html#projects">技術検証一覧へ戻る</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> ara nova</div>
+    <nav class="footer-nav"><a href="privacy.html">プライバシーポリシー</a></nav>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

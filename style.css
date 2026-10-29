@@ -234,3 +234,8 @@ a{color:var(--accent-2)}
 .prose > *{max-width:760px}
 .prose h3{margin:28px 0 6px;font-size:1.05rem;color:var(--ink)}
 .prose h2{margin-bottom:14px}
+
+/* grouped tech cards (home page) */
+.tech-group + .tech-group{margin-top:36px}
+.group-title{margin:0 0 14px;padding-left:10px;border-left:4px solid var(--accent-2);font-size:1.05rem;line-height:1.4;color:var(--ink)}
+@media (min-width:921px){.services-grid.cols-2{grid-template-columns:repeat(2,1fr)}}
